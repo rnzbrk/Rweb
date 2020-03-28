@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Psikometri | Eren Halil Özberk</title>
+    <link>/categories/psikometri/</link>
+      <atom:link href="/categories/psikometri/index.xml" rel="self" type="application/rss+xml" />
+    <description>Psikometri</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>tr-Tr</language><copyright>Eren Halil Özberk-2020</copyright><lastBuildDate>Mon, 20 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Psikometri</title>
+      <link>/categories/psikometri/</link>
+    </image>
+    
+    <item>
+      <title>R ile Nonparametrik İstatistikler</title>
+      <link>/post/nonparametrik/</link>
+      <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>/post/nonparametrik/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Bu belgede kullanılan örnekler Şener Büyüköztürk&#39;ün Sosyal Bilimler için Veri Analizi El Kitabı isimli kaynağından yazarın izni ile alınmıştır.&lt;/strong&gt;&lt;/p&gt;
+&lt;h1 id=&#34;1-nonparametrik-istatistikler&#34;&gt;1. Nonparametrik İstatistikler&lt;/h1&gt;
+&lt;p&gt;Hipotez testleri oluşturulurken, herhangi bir evrenden çekilen örneklem dağılımı yardımıyla evren dağılımı hakkında birtakım bilgilere sahip olunabilir. Evren dağılımı bilindiği durumlarda parametrik istatistikler (t-testi, ANOVA, ANCOVA&amp;hellip;) kullanılır. Ancak evren dağılımı bilinmediği ya da herhangi bir varsayımda bulunulmadığı durumlarda nonparametrik testler kullanılır.&lt;/p&gt;
+&lt;h2 id=&#34;11-varsayımlar&#34;&gt;1.1. Varsayımlar&lt;/h2&gt;
+&lt;p&gt;Nonparametrik testler, parametrik testlerin varsayımlarının karşılanmaması durumunda kullanılan istatistiksel yöntemlerdir. Parametrik ve nonparametrik testlerin varsayımları aşağıdaki gibidir:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Parametrik testlerde örneklem veya örneklemlerin çekildikleri evrenlerin &lt;strong&gt;normal dağılım göstermesi&lt;/strong&gt; ve &lt;strong&gt;varyanslarının homojen olması&lt;/strong&gt; istenir. Nonparametrik testlerde ise evren dağılımı konusunda bir varsayım bulunmamaktadır.&lt;/li&gt;
+&lt;li&gt;Parametrik testlerde örneklemdeki &lt;strong&gt;gözlem sayılarının 30 veya 30 üzeri olması&lt;/strong&gt; istenirken, nonparametrik testler &lt;strong&gt;gözlem sayısının 30&amp;rsquo;dan az&lt;/strong&gt; olduğu durumlarda kullanılabilir. Gözlem sayısının 30 olarak belirlenmesi örneklem istatistiklerinin genellikle 30&amp;rsquo;a yakınken normal dağılım gösterdiği varsayımıdır. Ancak 30 ve üzerinde olup normal dağılım göstermeyen durumlarla da karşılaşılabilir. Bu bakımdan sadece örneklem sayısına bakarak nonparametrik test yapmaya karar vermek hatalı olabilir.&lt;/li&gt;
+&lt;li&gt;Parametrik testlerde verilerin en az &lt;strong&gt;eşit aralık&lt;/strong&gt; düzeyinde ve &lt;strong&gt;sürekli&lt;/strong&gt; olması varsayımı vardır. Nonparametrik testlerde ise veri tipi en az &lt;strong&gt;sıralama&lt;/strong&gt; düzeyindedir ve süreklilik berlirtmeyebilir.&lt;/li&gt;
+&lt;li&gt;Hem parametrik hem de nonparametrik testlerde örneklem evrenden &lt;strong&gt;rastgele&lt;/strong&gt; seçilmelidir.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Nonparametrik testlerde verilerin sıralam düzeyinde kullanılmasını söyle açıklayalım. 
+Örneğin A sınıfındaki öğrencilerin boy uzunluklarını içeren bir veri üretelim.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r&#34;&gt;set.seed(15)
+boy = sample(160:180, 14, replace = TRUE)
+names(boy) = paste(&amp;quot;ID&amp;quot;, 1:14, sep = &amp;quot;&amp;quot;)
+boy
+
+sort(boy)
+rank(boy)
+sort(rank(boy))
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Dikkat edilirse 11 numaralı öğrencinin en kısa boya sahip olduğu (162 cm), 6 numaraalı öğrencinin ise en uzun boya sahip olduğu (180 cm) görülmüştür.&lt;/p&gt;
+&lt;p&gt;Nonparametrik testler gruplar arasındaki sistematik farklılıkları karşılaştırmak için kullanılır. Parametrik testlerde genelde ortalamalar karşılaştırılırken,  nonparametrik testlerde Karşılaştırmalar genellikle ortanca değere, verinin şekline ve dağılımına göre yapılır. Bu bakımdan nonparametrik testler ile ilgili araştırmalarda dikkat edilmesi gereken bazı noktalar vardır.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Nonparametrik testler oluşturulurken hipotezlerin ve yorumlamaların ortalamalar üzerine kurulmamasına dikkat etmek gerekir. Elde edilen fark dağılımlara ait farktır ve ortalamaları yorumlamak mümkün değildir.&lt;/li&gt;
+&lt;li&gt;Veriler sıralama ölçeği düzeyinde olduğu için yorumlanması eşit aralıklı ölçekteki gibi yapılmamalıdır.&lt;/li&gt;
+&lt;li&gt;Nonparametrik testler, parametrik testlere göre genellikle güçlü değillerdir. Bu bakımdan etki büyüklüklerinin ve güç analizlerinin verilmesi önemlidir.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;2-mann-whitney-u-testi&#34;&gt;2. Mann Whitney-U Testi&lt;/h1&gt;
+&lt;p&gt;İki ilişkisiz örneklemden elde edilen puanların karşılaştırılmasında kullanılır. Parametrik testlerdeki &lt;strong&gt;bağımsız örneklem t-testi&lt;/strong&gt; ile benzerdir. Mann Whitney-U testinde iki grup birbirinden bağımsızdır ve bağımlı değişkenler sıralama düzeyindedir. İki Örneklem Wilcoxon İşaretli Sıralar Testi olarak da adlandırılır.&lt;/p&gt;
+&lt;p&gt;Mann Whitney-U testinde eşit aralıklı düzeyde veri olmadığından &lt;strong&gt;ortalamalar&lt;/strong&gt; yerine &lt;strong&gt;dağılımlar&lt;/strong&gt; karşılaştırılır. Mann Whitney-U testinde hipotezler ilişkisiz grupların ortancaları üzerine değil bir gruptaki gözlemlerin diğer gruptaki gözlemlerden büyük/küçük/farklı olduğu üzerine kurulur.&lt;/p&gt;
+&lt;p&gt;Mann Whitney-U analizleri &lt;em&gt;wilcox.test()&lt;/em&gt; fonksiyonu ile yürütülebilir. Fonksiyonunun kullanımı aşağıdaki gibidir:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r&#34;&gt;wilcox.test(x, y = NULL,
+            alternative = c(&amp;quot;two.sided&amp;quot;, &amp;quot;less&amp;quot;, &amp;quot;greater&amp;quot;),
+            conf.int = FALSE, conf.level = 0.95, …)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;wilcox.test()&lt;/em&gt; fonksiyonunun argümanları Tablo 2.1’de açıklanmıştır.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Tablo 2.1&lt;/strong&gt;&lt;/em&gt; &lt;em&gt;wilcox.test() fonksiyonu argümanları ve açıklamaları&lt;/em&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Argümanlar&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Açıklamalar&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;x&lt;/td&gt;
+&lt;td&gt;Birinci örnekleme ait sayısal vektör&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;y&lt;/td&gt;
+&lt;td&gt;İkinci örnekleme ait sayısal vektör&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;alternative&lt;/td&gt;
+&lt;td&gt;Hipotezin özelliğini belirtir. İki yönlü için &amp;ldquo;two.sided&amp;rdquo;, büyüktür &amp;ldquo;greater&amp;rdquo;, küçüktür &amp;ldquo;less&amp;rdquo;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;conf.int&lt;/td&gt;
+&lt;td&gt;Güven aralığı kestirimleri istenirse &amp;ldquo;TRUE&amp;rdquo;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;conf.level&lt;/td&gt;
+&lt;td&gt;Güven aralığının düzeyini belirler. Halihazırda 0.95 olarak atanmıştır.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;paired&lt;/td&gt;
+&lt;td&gt;Ölçümlerin ilişkisini belirler. Halihazırda &amp;ldquo;FALSE&amp;rdquo; olarak kayıtlıdır. &amp;ldquo;TRUE&amp;rdquo; seçilir.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;21-testin-aşamaları&#34;&gt;2.1. Testin Aşamaları&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Örnek&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Araştırmacı, anti-sosyal davranış gösteren ilkokul öğrencilerine iletişim becerileri kazandırmaya yönelik bir programın etkiliğini incelemek istiyor. Bu tür davranışları gözlenen 14 öğrenci yansız olarak iki gruba (deney-kontrol) ayrılıyor. Deney grubu olarak atanan öğrenciler, iletişim becerilerini arttırmaya yönelik dört haftalık X programını alırken, diğer öğrenciler üzerinde hiçbir işlem yapılmıyor. Dört haftalık süre sonunda öğrencilerin iletişim becerileri, geliştirilen bir araçla ölçülüyor. Yüksek puan, iletişim becerilerinin yüksek olduğunu göstermektedir. Çalışmaya ilişkin veriler &lt;strong&gt;&amp;ldquo;iletisim.csv&amp;rdquo;&lt;/strong&gt; dosyasına kaydedilmiştir.&lt;/p&gt;
+&lt;h2 id=&#34;22-araştırma-problemi-ve-hipotezlerin-oluşturulması&#34;&gt;2.2. Araştırma Problemi ve Hipotezlerin Oluşturulması&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Araştırma Problemi&lt;/strong&gt;&lt;/em&gt;: X programına katılan öğrencilerin iletişim becerileri, böyle bir programa katılmayan öğrencilere göre anlamlı bir şekilde daha yüksek midir?&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Sıfır Hipotezi&lt;/strong&gt;&lt;/em&gt; $H_{0}$ : X programına katılan öğrencilerin iletişim becerileri, böyle bir programa katılmayan öğrencilere göre anlamlı bir şekilde daha yüksektir.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Alternatif Hipotezi&lt;/strong&gt;&lt;/em&gt; $H_{1}$ : X programına katılan öğrencilerin iletişim becerileri, böyle bir programa katılmayan öğrencilere göre anlamlı bir şekilde daha yüksek değildir.&lt;/p&gt;
+&lt;p&gt;Mann Whitney-U analizleri için veriler &lt;em&gt;read.csv2()&lt;/em&gt; fonksiyonu yardımıyla okutulup, &lt;em&gt;iletisim&lt;/em&gt; nesnesi olarak kaydedilir. &lt;em&gt;str()&lt;/em&gt; fonksiyonu yardımıyla nesnenin yapısı incelenir.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r&#34;&gt;
+iletisim &amp;lt;- read.csv2(&amp;quot;https://raw.githubusercontent.com/rnzbrk/NonparametrikTestler_Workshop/master/iletisim.csv&amp;quot;, header=TRUE)
+iletisim
+
+str(iletisim)
+
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Dikkat edilirse &lt;strong&gt;iletisim&lt;/strong&gt; nesnesine ait &lt;em&gt;grup&lt;/em&gt; ve &lt;em&gt;iletisim&lt;/em&gt; değişkenlerinin her ikisi de tamsayı (integer) değerlerdir. &lt;strong&gt;grup&lt;/strong&gt; değişkeni faktör değişkene dönüştürülmelidir. Bu sayede deney ve kontrol olmak üzere iki farklı grup oluşturulabilir.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r&#34;&gt;
+
+iletisim$grup &amp;lt;- factor(iletisim$grup, c(1,2), labels=c(&amp;quot;Deney&amp;quot;,&amp;quot;Kontrol&amp;quot;))
+iletisim$IletisimSira &amp;lt;- rank(iletisim$iletisim)
+
+str(iletisim)
+
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;23-betimsel-istatistiklerin-hesaplanması&#34;&gt;2.3. Betimsel İstatistiklerin Hesaplanması&lt;/h2&gt;
+&lt;p&gt;Bir sonraki adımda verinin yapısını incelemek adına çeşitli gösterimlerde bulunulacaktır. &lt;strong&gt;iletisim&lt;/strong&gt; veri setindeki değişkenlerin gruplara göre betimsel istatistikleri &lt;em&gt;tapply()&lt;/em&gt; ve &lt;em&gt;summary()&lt;/em&gt; fonksiyonları ile gösterilmiştir.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r&#34;&gt;
+tapply(iletisim$iletisim, iletisim$grup, summary)
+
+tapply(iletisim$IletisimSira, iletisim$grup, summary)
+tapply(iletisim$IletisimSira, iletisim$grup, sum)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Yukarıda elde edilen çıktılar incelendiğinde üç özet değer elde edildiği görülebilir. İlki verilerin eşit aralık olarak kabul edildiği durumdaki değerlerdir. İkincisi ise verilerin sıralama düzeyinde olduğu duruma ait değerlerdir. İkinci çıktıdan Deney grubu için elde edilen 9,86 ile Kontrol grubu için elde edilen 5,14 değerleri Mann Whitney-U testinde rapor edilen Sıra Ortalamaları değerleridir. Son olarak ise Deney ve Kontrol grubuna ait Sıra Toplamları değerleri elde edilmiştir. Bu değer de Mann Whitney-U testinde rapor edilmesi istenen bir değerdir.&lt;/p&gt;
+&lt;h2 id=&#34;24-varsayımların-test-edilmesi&#34;&gt;2.4. Varsayımların Test Edilmesi&lt;/h2&gt;
+&lt;p&gt;Mann Whitney-U testinin varsayımları olan 1) iki grubun birbirinden bağımsız olması ve 2) bağımlı değişkenin en az sıralama ölçeğinde olması varsayımı test edilir. İkinci varsayım halihazırda sağlandığı için bu adımda birinci varsayıma ilişkin değerler gösterilecektir. Grupların ortancaları arasındaki farkı oraya koymak için bağımsız değişkenin her bir düzeyine göre bağımlı değişkenin dağılımının benzer olması beklenir. Dağılımların yerinin önemi yoktur yanlızca dağılımın şekillerinin birbirine benzemesi gerekmektedir.&lt;/p&gt;
+&lt;p&gt;Deney ve kontrol grubu grafiklerini aynı grafikte göstermek için grafik penceresi &lt;em&gt;par()&lt;/em&gt; fonksiyonu ile belirlenir. Bu sayede 1 satır ve 2 sütunlu bir boş çerçeve oluşturulmuş olur. Daha sonra bağımsız değişkenin her düzeyleri olan Deney ve Kontrol grupları için histogramlar aşağıdaki gibi çizilir.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r&#34;&gt;par(mfrow=c(1,2))
+hist(iletisim$iletisim[iletisim$grup == &amp;quot;Deney&amp;quot;], 
+     main = &amp;quot;Deney Grubu Histogram&amp;quot;, xlab= &amp;quot;İletişim Puan&amp;quot;)
+hist(iletisim$iletisim[iletisim$grup == &amp;quot;Kontrol&amp;quot;], 
+     main = &amp;quot;Kontrol Grubu Histogram&amp;quot;, xlab= &amp;quot;İletişim Puan&amp;quot;)
+
+par(mfrow=c(1,1))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Deney ve kontrol grubuna ait histogramların şekilleri birbirinden farklı çıkmıştır. Bu bakımdan ortanca değerler yerine ortalama sıra (mean rank) değerleri rapor edilmelidir. Eğer histogramlar birbirine benzer çıkmış olsaydı iletişim becerilerini farklarını açıklamak için ortanca değerler kullanılabilecekti.&lt;/p&gt;
+&lt;h2 id=&#34;25-mann-whitney-u-testinin-oluşturulması&#34;&gt;2.5. Mann Whitney-U testinin oluşturulması&lt;/h2&gt;
+&lt;p&gt;Mann Whitney-U testi sıfır hipotezini test etmektedir. &lt;em&gt;p&lt;/em&gt; değeri belirlenen kritik değerden (0,05) küçük olduğu durumda sıfır hipotezi reddedilir. &lt;em&gt;wilcox.test(sayısal_değişken ~ faktör_değişken&lt;/em&gt;)* formu kullanılarak hesaplamalar yapılır.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r&#34;&gt;
+
+wilcox.test(iletisim$Iletisim ~ iletisim$grup, alternative = &amp;quot;greater&amp;quot;)
+ 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Analiz sonucunda &lt;em&gt;W=41&lt;/em&gt; değeri ve &lt;em&gt;p=0,02035&lt;/em&gt; olmak üzere iki değer elde edilir. Wilcoxon W değeri sıra değerlerinin toplamının en düşüğünü gösterir ve &lt;em&gt;p&lt;/em&gt; değerini hesaplamak için kullanılır.&lt;/p&gt;
+&lt;h2 id=&#34;26-sonuçların-raporlanması&#34;&gt;2.6. Sonuçların Raporlanması&lt;/h2&gt;
+&lt;p&gt;Mann Whitney-U testi sonuçlarına göre anti-sosyal davranışları gözlenen çocuklardan X programına katılanlarla, böyle bir programa katılmayanların uygulama sonrasındaki iletişim becerileri Tablo 2.2&amp;rsquo;de verilmiştir. Buna göre, dört haftalık bir deneysel çalışma sonunda, X programına katılan çocuklar ile böyle bir programa katılmayan çocukların iletişim becerileri arasında anlamlı bir fark olduğu bulunmuştur (W=41, p=&amp;lt;0,05). Sıra ortalamaları dikkate alındığında, X programına katılan çocukların, programa katılmayan çocuklara göre iletişim becerilerinin daha yüksek olduğu anlaşılmaktadır. Bu bulgu, X programının, anti-sosyal dvranış gösteren çocukların iletişim becerilerini arttırmada etkili olduğunu gösterir.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Tablo 2.2&lt;/strong&gt;&lt;/em&gt; &lt;em&gt;İletişim Becerilerinin Gruba Göre Mann Whitney-U Testi Sonuçları&lt;/em&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;center&#34;&gt;Grup&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;n&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Sıra Ortalaması&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Sıra Toplamı&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;W&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;p&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;Deney&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;7&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;9,86&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;69&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;41,0&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;0,02&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;Kontrol&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;7&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;5,14&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;36&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;3-wilcoxon-işaretli-sıralar-testi&#34;&gt;3. Wilcoxon İşaretli Sıralar Testi&lt;/h1&gt;
+&lt;p&gt;İlişkili iki örnekleme ait puanlar arasındaki farkın anlamlılığını test etmek için kullanılır. Parametrik testlerdeki &lt;strong&gt;bağımlı örneklem t-testi&lt;/strong&gt; ile benzerdir. Wilcoxon İşaretli Sıralar testinde gözlem çiftleri birbirinden bağımsızdır ve bağımlı değişkenler sıralama düzeyindedir.&lt;/p&gt;
+&lt;p&gt;Wilcoxon İşaretli Sıralar testinde analizler fark puanları üzerinden yürütülür. Fark puanları küçükten büyüğe doğru, 1&amp;rsquo;den başlayarak işaretine dikkat edilmeksizin sıra sayıları verilmesi temeline dayanır. Daha sonra + ve - işaretli olan fark puanlarının sıra sayıları toplanır. Test edilen durum gerçekte, bu iki sıra sayıların toplamı arasındaki farktır. Aynı puanlar analiz dışı tutulur ve analiz küçük olan sıra toplamları üzerine kurulur. Z istatistiği kullanılır.&lt;/p&gt;
+&lt;p&gt;Wilcoxon İşaretli Sıralar testi az denekli yürütülen grupiçi karşılaştırmalarda kullanılır. Deneklerin fark puanlarının normal dağılım göstermediği durumlarda bağıımlı örneklem t-testi yerine tercih edilir.&lt;/p&gt;
+&lt;p&gt;Wilcoxon İşaretli Sıralar analizleri &lt;em&gt;wilcox.test()&lt;/em&gt; fonksiyonu ile yürütülebilir. Fonksiyonunun kullanımı aşağıdaki gibidir.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r&#34;&gt;wilcox.test(x, y = NULL,
+            alternative = c(&amp;quot;two.sided&amp;quot;, &amp;quot;less&amp;quot;, &amp;quot;greater&amp;quot;),
+            paired= TRUE, conf.int = FALSE, conf.level = 0.95, …)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Daha önce Tablo 2.1’de açıklanan &lt;em&gt;wilcox.test()&lt;/em&gt; fonksiyonunun argümanlarından &amp;ldquo;paired=TRUE&amp;rdquo; argümanı eklenir.&lt;/p&gt;
+&lt;h2 id=&#34;31-testin-aşamaları&#34;&gt;3.1. Testin Aşamaları&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Örnek&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Konuşma becerilerini geliştirmede kullanılmak amacıyla hazırlanan X programının etkililiği araştırılıyor. Okulöncesi eğitime devam eden ve konuşma güçlüğü çeken sekiz çocuğun uygulama öncesi ve sonrası bir konuşma testinden aldıkları puanlar &lt;strong&gt;&amp;ldquo;konusma.csv&amp;rdquo;&lt;/strong&gt; dosyasına kaydedilmiştir.&lt;/p&gt;
+&lt;h2 id=&#34;32-araştırma-problemi-ve-hipotezlerin-oluşturulması&#34;&gt;3.2. Araştırma Problemi ve Hipotezlerin Oluşturulması&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Araştırma Problemi&lt;/strong&gt;&lt;/em&gt; Çocukların konuşma becerileri, uygulanan X programı sonrasında anlamlı bir farklı mıdır?&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Sıfır Hipotezi&lt;/strong&gt;&lt;/em&gt; $H_{0}$ : Çocukların X programına ait öncesi ve sonrası konuşma becerileri arasında anlamlı bir farkdır.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Alternatif Hipotezi&lt;/strong&gt;&lt;/em&gt; $H_{1}$ : Çocukların X programına ait öncesi ve sonrası konuşma becerileri arasında anlamlı bir fark yoktur.&lt;/p&gt;
+&lt;p&gt;Wilcoxon İşaretli Sıralar analizleri için veriler &lt;em&gt;read.csv2()&lt;/em&gt; fonksiyonu yardımıyla okutulup, &lt;em&gt;iletisim&lt;/em&gt; nesnesi olarak kaydedilir. &lt;em&gt;str()&lt;/em&gt; fonksiyonu yardımıyla nesnenin yapısı incelenir.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r&#34;&gt;
+konusma &amp;lt;- read.csv2(&amp;quot;https://raw.githubusercontent.com/rnzbrk/NonparametrikTestler_Workshop/master/konusma.csv&amp;quot;, header=TRUE)
+konusma
+
+str(konusma)
+
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Dikkat edilirse &lt;strong&gt;konusma&lt;/strong&gt; nesnesine faktör değişken bulunmamaktadır. Burada aynı bireye ait öntest ve sontest puanları ilişkili ölçümleri belirtmektedir. İlişkili ölçümlerde fark değerleri üzerinden işlemler yapıldığından sontest puanlarından öntest puanlarını çıkararak fark değişkeni tanımlanmış ve daha sonra sıra numarası verilmiştir. Ayrıca &lt;em&gt;cut()&lt;/em&gt; fonksiyonu kullanılarak sıfırdan düşük değerlere &amp;ldquo;Negatif Sıra&amp;rdquo;, sıfırdan büyük değerlere ise &amp;ldquo;Pozitif Sıra&amp;rdquo;, sıfıra eşit değerlere de &amp;ldquo;Eşit&amp;rdquo; ismi verilerek üç faktörlü grup değişkeni oluşturulmuştur.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r&#34;&gt;
+
+konusma$fark &amp;lt;- konusma$sontest - konusma$ontest
+
+konusma$grup &amp;lt;- cut(konusma$fark, c(-10,-0.99, 0.099,+10),
+                    labels = c(&#39;Negatif Sıra&#39;,&#39;Eşit&#39;,&#39;Pozitif Sıra&#39;), right = FALSE)
+
+konusma$farkSira &amp;lt;- rank(abs(konusma$fark))
+str(konusma)
+
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;33-betimsel-istatistiklerin-hesaplanması&#34;&gt;3.3. Betimsel İstatistiklerin Hesaplanması&lt;/h2&gt;
+&lt;p&gt;Bir sonraki adımda verinin yapısını incelemek adına çeşitli gösterimlerde bulunulacaktır. &lt;strong&gt;konusma&lt;/strong&gt; veri setindeki değişkenlerin gruplara göre betimsel istatistikleri &lt;em&gt;tapply()&lt;/em&gt; ve &lt;em&gt;summary()&lt;/em&gt; fonksiyonları ile gösterilmiştir.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r&#34;&gt;
+summary(konusma)
+
+
+tapply(konusma$farkSira, konusma$grup, summary)
+tapply(konusma$farkSira, konusma$grup, sum)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Yukarıda elde edilen çıktılar incelendiğinde üç özet değer elde edildiği görülebilir. İlki verilerin eşit aralık olarak kabul edildiği durumdaki değerlerdir. İkincisi ise verilerin sıralama düzeyinde olduğu duruma ait değerlerdir. İkinci çıktıdan Sıra Ortalamaları değerleri elde edilir. Son olarak ise Sıra Toplamları değerleri elde edilmiştir. Elde edilen değerler Wilcoxon İşaretli Sıralar testinde rapor edilir.&lt;/p&gt;
+&lt;h2 id=&#34;34-varsayımların-test-edilmesi&#34;&gt;3.4. Varsayımların Test Edilmesi&lt;/h2&gt;
+&lt;p&gt;Wilcoxon İşaretli Sıralar testinin fark dağılımlarının normal olup olmadığına bakılır. Bunun için fark değerlerinin histogramı çizilmiştir.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r&#34;&gt;
+median(konusma$ontest)
+median(konusma$sontest)
+hist(konusma$fark, main = &amp;quot;Fark Ortalamaları Histogramı&amp;quot;, xlab= &amp;quot;Konuşma Becerisi Puan&amp;quot;)
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Grafik incelendiğinde eşleşmiş ölçümlerin farklarının normal olmadığı ve böylece parametrik testlerin yerine nonparametrik testlerin uygulanması gerektiği yorumu yapılabilir. Parametrik testlerde daima ortalama yerine ortanca değerlerinin yorumlanmasına dikkat ediniz.&lt;/p&gt;
+&lt;h2 id=&#34;35-wilcoxon-işaretli-sıralar-testinin-oluşturulması&#34;&gt;3.5. Wilcoxon İşaretli Sıralar testinin oluşturulması&lt;/h2&gt;
+&lt;p&gt;Wilcoxon İşaretli Sıralar testi sıfır hipotezini test etmektedir. &lt;em&gt;p&lt;/em&gt; değeri belirlenen kritik değerden (0,05) küçük olduğu durumda sıfır hipotezi reddedilir. &lt;em&gt;wilcox.test(sayısal_değişken, sayısal_değişken, paired=TRUE)&lt;/em&gt; formu kullanılarak hesaplamalar yapılır.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r&#34;&gt;
+
+wilcox.test(konusma$ontest, konusma$sontest, paired = TRUE)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Analiz sonucunda &lt;em&gt;V=2&lt;/em&gt; değeri ve &lt;em&gt;p=0,0485&lt;/em&gt; olmak üzere iki değer elde edilir. Wilcoxon W değeri sıra değerlerinin toplamının en düşüğünü gösterir ve &lt;em&gt;p&lt;/em&gt; değerini hesaplamak için kullanılır. V değeri hesaplanan Z değerini belirtmektedir.&lt;/p&gt;
+&lt;h2 id=&#34;36-sonuçların-raporlanması&#34;&gt;3.6. Sonuçların Raporlanması&lt;/h2&gt;
+&lt;p&gt;sonuçlarına göre çocukların öncesi ve sonrası konuşma becerilerinin anlamlı bir farlılık gösterip göstermediğine ilişkin Wilcoxon İşaretli Sıralar testi sonuçları Tablo 3.1&amp;rsquo;de verilmiştir. Analiz sonuçları, araştırmaya katılan çocukların kouşma becerileri testinden aldıkları deney öncesi ve sonrası puanları arassında anlamlı bir fark olduğunu göstermektedir (Z=2; p=&amp;lt;0,05). Fark puanlarının sıra ortalaması ve toplamları dikkate alındığında, gözlenen bu farkın pozitif sıralar, yani son test puanı lehine olduğu görülmektedir. Bu sonuçlara göre, düzenlenen X programının çocukların konuşma becerilerini geliştirmede önemli bir etkisinin olduğu söylenebilir.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Tablo 3.1&lt;/strong&gt;&lt;/em&gt; &lt;em&gt;İletişim Becerilerinin Gruba Göre Mann Whitney-U Testi Sonuçları&lt;/em&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Sontest-Öntest&lt;/th&gt;
+&lt;th&gt;n&lt;/th&gt;
+&lt;th&gt;Sıra Ortalaması&lt;/th&gt;
+&lt;th&gt;Sıra Toplamı&lt;/th&gt;
+&lt;th&gt;Z&lt;/th&gt;
+&lt;th&gt;p&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Negatif Sıra&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;0,0485&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Pozitif Sıra&lt;/td&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;5,33&lt;/td&gt;
+&lt;td&gt;32&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Eşit&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;4-kruskal-wallis-testi&#34;&gt;4. Kruskal Wallis Testi&lt;/h1&gt;
+&lt;p&gt;Kruskal Wallis testi Mann Whitney-U testinin ikiden fazla örnekleme uygulanan halidir. Analizde k tane örneklemin bağımlı değişken üzerinde anlamlı farklılık gösterip göstermediği incelenir. ANOVA testinin nonparametrik halidir ve varsayımları arasında a) bağımlı değişkenin en az sıralama ölçeği düzeyinde olması b) gözlemlerin birbirinden bağımsız olmasını gerektirir. ANOVA&amp;rsquo;dan farklı olarak her bir alt gruba ait normal dağılım ve varyansların eşitliği varsayımı bulunmaz.&lt;/p&gt;
+&lt;p&gt;Kruskal Wallis testinde hipotezler ortanca değerler üzerine kurulmaz.Aksine hipotezler bir grupta gözlemlerin diğer gruptan büyük/eşit/küçük olduğu üstüne kurulmaktadır.&lt;/p&gt;
+&lt;p&gt;Kruskal Wallis analizleri &lt;em&gt;kruskal.test()&lt;/em&gt; fonksiyonu ile yürütülebilir. Fonksiyonunun kullanımı aşağıdaki gibidir.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r&#34;&gt;
+kruskal.test(x, g, …)
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;41-testin-aşamaları&#34;&gt;4.1. Testin Aşamaları&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Örnek&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Okuma güçlüğü çeken bir grup öğrencinin, okuma becerilerini geliştirmede üç farklı eğitim programının (A-B-C) etkililikleri araştırılıyor. Bu amaçla, ilkokul birinci sınıf öğrencileri iiçnden belirlenen 12 öğrenci, yansız olarak 3 gruba atanıyor ve öğrenciler, normal eğitimlerinin yanı sıra üç haftalık bir okuma becerilerini geliştirme eğitimine katılıyorlar. Çalışmaya ilişkin denemelik veriler &lt;strong&gt;okuma.csv&lt;/strong&gt; isimli dosyadada bulunmaktadır.&lt;/p&gt;
+&lt;h2 id=&#34;42-araştırma-problemi-ve-hipotezlerin-oluşturulması&#34;&gt;4.2. Araştırma Problemi ve Hipotezlerin Oluşturulması&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Araştırma Problemi&lt;/strong&gt;&lt;/em&gt; Öğrencilerin okuma becerileri, alınan eğitim programına göre anlamlı farklılık göstermekte midir?&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Sıfır Hipotezi&lt;/strong&gt;&lt;/em&gt; $H_{0}$ : Öğrencilerin okuma becerileri, alınan eğitim programına göre anlamlı farklılık göstermektedir.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Alternatif Hipotezi&lt;/strong&gt;&lt;/em&gt; $H_{1}$ : Öğrencilerin okuma becerileri, alınan eğitim programına göre anlamlı farklılık göstermemektedir.&lt;/p&gt;
+&lt;p&gt;Kruskal Wallis analizleri için veriler &lt;em&gt;read.csv2()&lt;/em&gt; fonksiyonu yardımıyla okutulup, &lt;em&gt;okuma&lt;/em&gt; nesnesi olarak kaydedilir. &lt;em&gt;str()&lt;/em&gt; fonksiyonu yardımıyla nesnenin yapısı incelenir.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r&#34;&gt;
+okuma &amp;lt;- read.csv2(&amp;quot;https://raw.githubusercontent.com/rnzbrk/NonparametrikTestler_Workshop/master/okuma.csv&amp;quot;, header=TRUE)
+okuma
+
+str(okuma)
+
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Dikkat edilirse &lt;strong&gt;okuma&lt;/strong&gt; nesnesinde &lt;em&gt;yontem&lt;/em&gt; faktör değişken iken &lt;em&gt;okuma&lt;/em&gt; ise sayısal değişkendir. Veri setinde okuma puanlarına göre sıralamalar &lt;em&gt;rank()&lt;/em&gt; fonksiyonu ile oluşturulup &lt;em&gt;okumaFark&lt;/em&gt; değişkeni olarak kaydedilmiştir.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r&#34;&gt;
+
+okuma$okumaFark &amp;lt;- rank(okuma$okuma)
+
+okuma
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;43-betimsel-istatistiklerin-hesaplanması&#34;&gt;4.3. Betimsel İstatistiklerin Hesaplanması&lt;/h2&gt;
+&lt;p&gt;Bir sonraki adımda verinin yapısını incelemek adına çeşitli gösterimlerde bulunulacaktır. Okuma puanlarının yöntemlere göre betimsel istatistikleri &lt;em&gt;tapply()&lt;/em&gt; ve &lt;em&gt;summary()&lt;/em&gt; fonksiyonları ile gösterilmiştir.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r&#34;&gt;
+summary(okuma)
+
+
+
+tapply(okuma$okumaFark, okuma$yontem, summary)
+tapply(okuma$okumaFark, okuma$yontem, sum)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Yukarıda elde edilen çıktılar incelendiğinde üç özet değer elde edildiği görülebilir. İlki verilerin eşit aralık olarak kabul edildiği durumdaki değerlerdir. İkincisi ise verilerin sıralama düzeyinde olduğu duruma ait değerlerdir. Burada her bir yöntem için elde edilen ortalama değerleri A yöntemi için 2,50; B yöntemi için 6,75 ve C yöntemi için 10,25 olarak bulunmuştur. Bu değerler rapor edilmesi gereken Sıra ortalaması değerleridir. Son olarak ise A yöntemi için 10; B yöntemi için 27 ve C yöntemi için 41 olarak Sıra Toplamları değerleri elde edilmiştir. Elde edilen değerler Kruskal Wallis testinde rapor edilir. Elde edien sonuçlar incelendiğinde C yönteminin öğrencilerin okuma becerilerine diğer iki yöntemden daha fazla etki ettiği görülmüştür.&lt;/p&gt;
+&lt;h2 id=&#34;44-varsayımların-test-edilmesi&#34;&gt;4.4. Varsayımların Test Edilmesi&lt;/h2&gt;
+&lt;p&gt;Kruskal Wallis testininde ortanca değerlerin nasıl farklılaştığını belirlemek adına her üç yöntem için kutu grafikleri çizilir. Kutu grafiğinin çiziminde &lt;em&gt;boxplot(bağımlıdeğişken~bağımsızdeğişken)&lt;/em&gt; formatı kullanılır.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r&#34;&gt;par(mfrow=c(1,2))
+boxplot(okuma$okuma~okuma$yontem, main= &amp;quot;Yöntemlere Göre Okuma Becerisi Puanları&amp;quot;)
+boxplot(okuma$okumaFark~okuma$yontem, main= &amp;quot;Yöntemlere Göre Okuma Becerisi Sırası&amp;quot;)
+par(mfrow=c(1,1))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Kutu grafiğinde kutuların içindeki kalın yatay çizgiler ortanca değerleri ifade eder. Kutu grafiğinin alt ve üst değerleri de dağılımın en düşük ve en yüksek noktalarını belirtir. Burada da görüldüğü gibi C yönteminin diğer iki yöntemden daha fazla okuma becerisine katkı sağladığı görülmektedir. Sağdaki grafikte ise yöntemlere göre okuma becerilerinden elde edilen sıra değerleri grafiği çizilmiştir. Her iki grafik birbiriyle tutarlılık göstermektedir.&lt;/p&gt;
+&lt;p&gt;Grafiklerin daha renkli gösterimleri için aşağıdaki kodları kullanabilirsiniz.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r&#34;&gt;library(&amp;quot;ggpubr&amp;quot;)
+library(&amp;quot;ggplot2&amp;quot;)
+
+g1 &amp;lt;- ggboxplot(okuma, x = &amp;quot;yontem&amp;quot;, y = &amp;quot;okuma&amp;quot;, 
+          color = &amp;quot;yontem&amp;quot;, palette = c(&amp;quot;#00AFBB&amp;quot;, &amp;quot;#E7B800&amp;quot;, &amp;quot;#FC4E07&amp;quot;),
+          order = c(&amp;quot;A&amp;quot;, &amp;quot;B&amp;quot;, &amp;quot;C&amp;quot;), main=&amp;quot;Puan Karşılaştırma&amp;quot;,
+          ylab = &amp;quot;Okuma Becerisi Puanları&amp;quot;, xlab = &amp;quot;Yöntem&amp;quot;)
+
+g2 &amp;lt;- ggboxplot(okuma, x = &amp;quot;yontem&amp;quot;, y = &amp;quot;okumaFark&amp;quot;, 
+          color = &amp;quot;yontem&amp;quot;, palette = c(&amp;quot;#00AFBB&amp;quot;, &amp;quot;#E7B800&amp;quot;, &amp;quot;#FC4E07&amp;quot;),
+          order = c(&amp;quot;A&amp;quot;, &amp;quot;B&amp;quot;, &amp;quot;C&amp;quot;), main=&amp;quot;Sıra Karşılaştırma&amp;quot;,
+          ylab = &amp;quot;Okuma Becerisi Sıralaması&amp;quot;, xlab = &amp;quot;Yöntem&amp;quot;)
+
+ggarrange(g1, g2, ncol = 2, nrow = 1)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;45-kruskal-wallis-testinin-oluşturulması&#34;&gt;4.5. Kruskal Wallis testinin oluşturulması&lt;/h2&gt;
+&lt;p&gt;Kruskal Wallis testinin amacı sıfır hipotezini test etmektedir. &lt;em&gt;p&lt;/em&gt; değeri belirlenen kritik değerden (0,05) küçük olduğu durumda sıfır hipotezi reddedilir. &lt;em&gt;kruskal.test(bağımlı_değişken ~ bağımsız_değişken)&lt;/em&gt; formu kullanılarak hesaplamalar yapılır.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r&#34;&gt;
+kruskal.test(okuma$okuma ~ okuma$yontem)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Analiz sonucunda sd=(k-1) üzerinden kestirilen ki-kare istatistiği değeri hesaplanır.  &lt;em&gt;$x^{2}$=9,26&lt;/em&gt; değeri ve &lt;em&gt;p=0,001&lt;/em&gt; olmak üzere iki değer elde edilir. &lt;em&gt;p&lt;/em&gt; değerinin kritik değer olan 0,05&amp;rsquo;ten küçük olması nedeniyle yöntemler arasında anlamlı bir farkın olduğu yorumu yapılabilir.  ,&lt;/p&gt;
+&lt;p&gt;Farkların hangi gruplar arasında olduğunu belirlemek için ANOVA analizlerindeki gibi Kruskal Wallis testinde de post-hoc testlerine başvurulur. Kruskal Wallis için post-hoc testi &lt;em&gt;pairwise.wilcox.test()&lt;/em&gt; fonksiyonu yardımı ile yapılmaktadır. Fonksiyonunun kullanımı aşağıdaki gibidir:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r&#34;&gt;pairwise.wilcox.test(x, g, p.adjust.method = p.adjust.methods, ...)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;pairwise.wilcox.test()&lt;/em&gt; fonksiyonunun argümanları Tablo 4.1’de açıklanmıştır.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Tablo 4.1&lt;/strong&gt;&lt;/em&gt; &lt;em&gt;pairwise.wilcox.test() fonksiyonu argümanları ve açıklamaları&lt;/em&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Argümanlar&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Açıklamalar&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;x&lt;/td&gt;
+&lt;td&gt;Bağımlı Değişken&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;g&lt;/td&gt;
+&lt;td&gt;Kategorik bağımsız değişken&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;p.adjust.method&lt;/td&gt;
+&lt;td&gt;Nonparametrik ikili karşılaştırma yöntemleri:&amp;ldquo;holm&amp;rdquo;,&amp;ldquo;bonferroni&amp;rdquo;,&amp;ldquo;fdr&amp;rdquo;,&amp;ldquo;BY&amp;rdquo; ve &amp;ldquo;none&amp;rdquo;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r&#34;&gt;
+pairwise.wilcox.test(okuma$okuma, okuma$yontem, p.adj=&#39;fdr&#39;)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Post-hoc analizi sonucu p değerlerin karşılaştırıdığı bir matris elde edilir. Bu değerlere bakılarak &lt;em&gt;p &amp;lt; 0,05&lt;/em&gt; koşulunu sağlayan ikililer belirlenir. Burada A-B ve A-C grupları arasında anlamlı bir fark olduğu; B-C grupları arasında anlamlı fark bulunmadığı yorumu yapılabilir.&lt;/p&gt;
+&lt;h2 id=&#34;46-sonuçların-raporlanması&#34;&gt;4.6. Sonuçların Raporlanması&lt;/h2&gt;
+&lt;p&gt;Kruskal Wallis testi sonuçlarına göre farklı öğretim yöntemine göre eğitim alan, okuma güçlüğü çeken çocukların program sonrasındaki okuma becerileri testinden aldıkları Kruskal Wallis testi sonuçları Tablo 4.2&amp;rsquo;de verilmiştir.&lt;/p&gt;
+&lt;p&gt;Analiz sonuçları, deneysel çalışmaya katılan çocukların okuma becerileri testinden aldıkları puanların, aldıkları öğretim yöntemine göre anlamlı bir şekilde farklılaitığını göstermektedir (&lt;em&gt;$x^{2}$(sd=2, n=12) = 9,26; p&amp;lt;0,001&lt;/em&gt;).Bu bulgu, kullanılan üç yöntemin çocukların okuma becerilerini artırmada farklı etkilere sahip olduğunu gösterir. Grupların sıra ortalamaları dikkate alındığında, uygulama sonrasında en yüksek okuma becerisi sırasının C programına katılanların sahip olduğu, bunu B ve A&amp;rsquo;nın izlediği görülmektedir.&lt;/p&gt;
+&lt;p&gt;Gruplar arasından gözlenen anlamlı farkın hangi gruplar arasasında çıktığını belirlemek adına Wilcoxon ikili karşılaştırma testi (post-hoc) kullanılmıştır. Elde edilen sonuçlara bakıldığında A-B ve A-C grupları arasında (B ve C lehine) anlamlı bir fark olduğu; B-C grupları arasında anlamlı fark bulunmadığı yorumu yapılabilir.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Tablo 4.2&lt;/strong&gt;&lt;/em&gt; &lt;em&gt;Okuma Becerilerinin Uygulanan Yönteme Göre Kruskal Wallis Testi Sonuçları&lt;/em&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Yöntem&lt;/th&gt;
+&lt;th&gt;n&lt;/th&gt;
+&lt;th&gt;Sıra Ortalaması&lt;/th&gt;
+&lt;th&gt;sd&lt;/th&gt;
+&lt;th&gt;ki-kare&lt;/th&gt;
+&lt;th&gt;p&lt;/th&gt;
+&lt;th&gt;Anlamlı Fark&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;A&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;2,50&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;9,26&lt;/td&gt;
+&lt;td&gt;0,01&lt;/td&gt;
+&lt;td&gt;A-B&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;B&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;6,75&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;A-C&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;C&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;10,25&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;5-ki-kare-testi&#34;&gt;5. Ki-kare Testi&lt;/h1&gt;
+&lt;p&gt;Ki-kare testi kategorik bir değişkenin düzeylerine giren birey ya da nesnelerin anlamlı bir farklılık gösterip göstermediğini test eder. İyi uyum testi olarak da bilinir. Kategorik değişkenler arasındaki farkın anlamlığını inceler. Bu bakımdan gözlenen değerler ile beklenen değerlerin birbirinden anlamlı olarak farklılaşıp farklılaşmadığına bakar.&lt;/p&gt;
+&lt;p&gt;Tek örneklem ve iki örneklem üzerinden ki-kare testleri yapılabilmektedir. Bu bölümde her iki tür de anlatılacaktır.&lt;/p&gt;
+&lt;p&gt;Ki-kare testinde her bir kategoriye ait gözlenen ve beklenen değerler arasındaki farkın karesinin beklenen değere bölünmesiyle elde edilen bir ki-kare istatistiği değeri elde edilir ve her koşul için elde edilen bu değerler toplanır. Beklenen ve gözlenen değerler arasındaki ark azaldıkça yani birimlerin kategorilere dağılımının uyum düzeyi arrtıkça ki-kare istatistiğinin anlamlı çıkma olasılığı düşecektir (yani farklılık olmayacaktır). Bu testin kullanılabilmesi için beklenen değerin beşten küçük kategori sayısının, toplam kategori sayısının %20&amp;rsquo;sini aşmaması ve tüm kategorilerde bu değerin 1&amp;rsquo;den büyük olması  gerekir. Bu koşul sağlanmıyor ise kategorilerde birlleştirme yapılması önerilir.&lt;/p&gt;
+&lt;p&gt;Tek örneklem ki-kare testi tek grup araştırmalarında tek bir değişkene ilişkin değişkenliğin imcelendiği deneysel ya da tarama çalışmalarında kullanılabilir.&lt;/p&gt;
+&lt;p&gt;Ki-kare analizleri &lt;em&gt;chisq.test()&lt;/em&gt; fonksiyonu ile yürütülebilir. Fonksiyonunun ve argümanların kullanımı Tablo 5.1&amp;rsquo;de gösterilmiştir.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r&#34;&gt;
+chisq.test(x, y = NULL, correct = TRUE, p = rep(1/length(x))
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Tablo 5.1&lt;/strong&gt;&lt;/em&gt; &lt;em&gt;chisq.test() fonksiyonu argümanları ve açıklamaları&lt;/em&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Argümanlar&lt;/th&gt;
+&lt;th&gt;Açıklamalar&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;x&lt;/td&gt;
+&lt;td&gt;Sayısal vektör ya da matris&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;y&lt;/td&gt;
+&lt;td&gt;İkinci değişkene ait sayısal vektör ya da matris&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;correct&lt;/td&gt;
+&lt;td&gt;Yates süreklilik düzeltilmesi kullanımı&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;p&lt;/td&gt;
+&lt;td&gt;Beklenen olasılık dağılımı&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;51-testin-aşamaları&#34;&gt;5.1. Testin Aşamaları&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Örnek&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Anaokulundaki çocukların tercih ettikleri oyun türünü gözleyen araştırmacı gözlem sonuçlarına göre çocukların oynadıkları oyunlar arasında bir uyum olup olmadığını incelemek istemektedir.&lt;/p&gt;
+&lt;h2 id=&#34;52-araştırma-problemi-ve-hipotezlerin-oluşturulması&#34;&gt;5.2. Araştırma Problemi ve Hipotezlerin Oluşturulması&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Araştırma Problemi&lt;/strong&gt;&lt;/em&gt; Çocukların tercih ettikleri oyun türleri arasında anlamlı bir farklılık var mıdır?&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Sıfır Hipotezi&lt;/strong&gt;&lt;/em&gt; $H_{0}$ : Çocukların tercih ettikleri oyun türleri arasında anlamlı bir farklılık vardır.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Alternatif Hipotezi&lt;/strong&gt;&lt;/em&gt; $H_{1}$ : Çocukların tercih ettikleri oyun türleri arasında anlamlı bir farklılık yoktur.&lt;/p&gt;
+&lt;p&gt;Yapılan araştırmada çocukların oynadıkları oyunların üç farklı kategoride toplandığı belirlenmiştir. Kategoriler ilişikin gözlem sayıları aşağıdaki gibi belirtilmiştir. 
+Fiziksel: 11
+Küp oyunları: 7
+Dramatik oyunlar:2&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r&#34;&gt;
+oyun &amp;lt;- c(11,7,2)
+oyun
+
+str(oyun)
+
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;53-betimsel-istatistiklerin-hesaplanması&#34;&gt;5.3. Betimsel İstatistiklerin Hesaplanması&lt;/h2&gt;
+&lt;p&gt;Ki-kare analizlerinde veriye ait betimsel istatistiklerden sadece yüzdelik oranlara ilişkin ifadeler elde edilebilir.  &lt;em&gt;prop.table()&lt;/em&gt; fonksiyonu ile her bir oyun türüne ait oranlar belirlenir.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r&#34;&gt;
+prop.table(oyun)
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Sonuçlar incelendiğinde tüm oyunlar içinde fiziksel oyunların %55, küp oyunlarının %35 ve dramatik oyunların ise %10&amp;rsquo;luk bir paya sahip olduğunu görmekteyiz. Bu elde edilenler gözlenen değerlerdir. Beklenen değerler ise her bir oyuna 1/3 olacak şekilde dağılmasıdır. Bu varsayımlar ile ki-kare analizi aşağıdaki gibi formülize edilir.&lt;/p&gt;
+&lt;h2 id=&#34;54-ki-kare-testinin-oluşturulması&#34;&gt;5.4. Ki-kare testinin oluşturulması&lt;/h2&gt;
+&lt;p&gt;Ki-kare testinin kategoriler arasındaki anlamlı farkları test etmektir. &lt;em&gt;p&lt;/em&gt; değeri belirlenen kritik değerden (0,05) küçük olduğu durumda sıfır hipotezi reddedilir. &lt;em&gt;chisq.test(sayısal_değişken, p=beklenen_değer)&lt;/em&gt; formu kullanılarak hesaplamalar yapılır.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r&#34;&gt;oyun_sonuc &amp;lt;- chisq.test(oyun, p = c(1/3, 1/3, 1/3))
+oyun_sonuc
+
+
+oyun_sonuc$expected
+oyun_sonuc$observed
+oyun_sonuc$statistic
+oyun_sonuc$p.value
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;55-sonuçların-raporlanması&#34;&gt;5.5. Sonuçların Raporlanması&lt;/h2&gt;
+&lt;p&gt;Analiz sonucunda tek örneklem ki-kare testi sonucuna göre gözlem yapılan 11&amp;rsquo;i fiziksel, 7&amp;rsquo;si küp ve 2&amp;rsquo;si dramatik türden oyun oynanmıştır. En az tercich edilen oyun türü dramatik en çok ise fizikseldir. Çocukların tercih ettikleri oyun türleri arasında gözlenen fark anlamlı bulunmuştur ($X^{2}$=6,1; p &amp;lt; 0,05)&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Tablo 5.2&lt;/strong&gt;&lt;/em&gt; _Tercih edilen oyun türüne göre oynama sıklıklarının karşılaştırılmasına ilişkin $X^{2}$ testi sonuçları _&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Gruplar&lt;/th&gt;
+&lt;th&gt;Gözlenen&lt;/th&gt;
+&lt;th&gt;Beklenen&lt;/th&gt;
+&lt;th&gt;$X^{2}$&lt;/th&gt;
+&lt;th&gt;sd&lt;/th&gt;
+&lt;th&gt;p&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Fiziksel&lt;/td&gt;
+&lt;td&gt;11&lt;/td&gt;
+&lt;td&gt;6,7&lt;/td&gt;
+&lt;td&gt;6,1&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;0,047&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Küp&lt;/td&gt;
+&lt;td&gt;7&lt;/td&gt;
+&lt;td&gt;6,7&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Dramatik&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;6,7&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Toplam&lt;/td&gt;
+&lt;td&gt;20&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

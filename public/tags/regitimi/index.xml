@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reğitimi | Eren Halil Özberk</title>
+    <link>/tags/regitimi/</link>
+      <atom:link href="/tags/regitimi/index.xml" rel="self" type="application/rss+xml" />
+    <description>Reğitimi</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>tr-Tr</language><copyright>Eren Halil Özberk-2020</copyright><lastBuildDate>Sat, 01 Jul 2017 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Reğitimi</title>
+      <link>/tags/regitimi/</link>
+    </image>
+    
+    <item>
+      <title>Serhat Kalkınma Ajansı - Uygulamalı R Yazılımı Veri Analizi</title>
+      <link>/talk/serka/</link>
+      <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
+      <guid>/talk/serka/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

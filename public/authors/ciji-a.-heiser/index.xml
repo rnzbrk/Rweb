@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ciji A. Heiser | Eren Halil Özberk</title>
+    <link>/authors/ciji-a.-heiser/</link>
+      <atom:link href="/authors/ciji-a.-heiser/index.xml" rel="self" type="application/rss+xml" />
+    <description>Ciji A. Heiser</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>tr-Tr</language><copyright>Eren Halil Özberk-2020</copyright><lastBuildDate>Tue, 01 May 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Ciji A. Heiser</title>
+      <link>/authors/ciji-a.-heiser/</link>
+    </image>
+    
+    <item>
+      <title>Software Review of flexMIRT Version 3.5</title>
+      <link>/publication/flexmirt/</link>
+      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
+      <guid>/publication/flexmirt/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Selahattin Gelbal | Eren Halil Özberk</title>
+    <link>/authors/selahattin-gelbal/</link>
+      <atom:link href="/authors/selahattin-gelbal/index.xml" rel="self" type="application/rss+xml" />
+    <description>Selahattin Gelbal</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>tr-Tr</language><copyright>Eren Halil Özberk-2020</copyright><lastBuildDate>Mon, 06 Mar 2017 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Selahattin Gelbal</title>
+      <link>/authors/selahattin-gelbal/</link>
+    </image>
+    
+    <item>
+      <title>Basit ve Karmaşık Test Desenlerinde Çok Boyutlu Madde Seçme Yöntemlerinin Karşılaştırılması</title>
+      <link>/publication/epod_mirt/</link>
+      <pubDate>Mon, 06 Mar 2017 00:00:00 +0000</pubDate>
+      <guid>/publication/epod_mirt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hacettepe Üniversitesi Mezun İzleme Çalışması</title>
+      <link>/publication/hacettepe_mezun/</link>
+      <pubDate>Tue, 01 Dec 2015 00:00:00 +0000</pubDate>
+      <guid>/publication/hacettepe_mezun/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

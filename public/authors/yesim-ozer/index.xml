@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Yeşim Özer | Eren Halil Özberk</title>
+    <link>/authors/yesim-ozer/</link>
+      <atom:link href="/authors/yesim-ozer/index.xml" rel="self" type="application/rss+xml" />
+    <description>Yeşim Özer</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>tr-Tr</language><copyright>Eren Halil Özberk-2020</copyright><lastBuildDate>Sat, 10 Sep 2011 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Yeşim Özer</title>
+      <link>/authors/yesim-ozer/</link>
+    </image>
+    
+    <item>
+      <title>PISA 2009 Türk Öğrencilerin Okuma Becerileri, Fen ve Matematik Okuryazarlığının Bazı Değişkenler Açısından İncelenmesi</title>
+      <link>/publication/pisa/</link>
+      <pubDate>Sat, 10 Sep 2011 00:00:00 +0000</pubDate>
+      <guid>/publication/pisa/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

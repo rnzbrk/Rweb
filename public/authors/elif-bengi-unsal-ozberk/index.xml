@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Elif Bengi Ünsal Özberk | Eren Halil Özberk</title>
+    <link>/authors/elif-bengi-unsal-ozberk/</link>
+      <atom:link href="/authors/elif-bengi-unsal-ozberk/index.xml" rel="self" type="application/rss+xml" />
+    <description>Elif Bengi Ünsal Özberk</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>tr-Tr</language><copyright>Eren Halil Özberk-2020</copyright><lastBuildDate>Tue, 01 May 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Elif Bengi Ünsal Özberk</title>
+      <link>/authors/elif-bengi-unsal-ozberk/</link>
+    </image>
+    
+    <item>
+      <title>Software Review of flexMIRT Version 3.5</title>
+      <link>/publication/flexmirt/</link>
+      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
+      <guid>/publication/flexmirt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dezavantajlı Yüksek Başarılı Öğrencilerin Okul ve Öğrenci Düzeyinde Matematik Başarılarını Etkileyen Değişkenlerin İncelenmesi</title>
+      <link>/publication/dezavantajli_hlm/</link>
+      <pubDate>Wed, 04 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>/publication/dezavantajli_hlm/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

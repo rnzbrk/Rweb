@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ölçmedeğerlendirme | Eren Halil Özberk</title>
+    <link>/tags/olcmedegerlendirme/</link>
+      <atom:link href="/tags/olcmedegerlendirme/index.xml" rel="self" type="application/rss+xml" />
+    <description>ölçmedeğerlendirme</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>tr-Tr</language><copyright>Eren Halil Özberk-2020</copyright><lastBuildDate>Tue, 30 Aug 2016 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>ölçmedeğerlendirme</title>
+      <link>/tags/olcmedegerlendirme/</link>
+    </image>
+    
+    <item>
+      <title>EPOD2016 Kongresi - R Yazılımına Giriş Çalıştayı</title>
+      <link>/talk/epod/</link>
+      <pubDate>Tue, 30 Aug 2016 00:00:00 +0000</pubDate>
+      <guid>/talk/epod/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

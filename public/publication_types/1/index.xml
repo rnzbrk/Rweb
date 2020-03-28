@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>1 | Eren Halil Özberk</title>
+    <link>/publication_types/1/</link>
+      <atom:link href="/publication_types/1/index.xml" rel="self" type="application/rss+xml" />
+    <description>1</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>tr-Tr</language><copyright>Eren Halil Özberk-2020</copyright><lastBuildDate>Fri, 15 Jul 2016 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>1</title>
+      <link>/publication_types/1/</link>
+    </image>
+    
+    <item>
+      <title>Multidimesional Test Design Approach for Ability Estimation in Adaptive Testing</title>
+      <link>/publication/imps_mirt/</link>
+      <pubDate>Fri, 15 Jul 2016 00:00:00 +0000</pubDate>
+      <guid>/publication/imps_mirt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PISA 2009 Türk Öğrencilerin Okuma Becerileri, Fen ve Matematik Okuryazarlığının Bazı Değişkenler Açısından İncelenmesi</title>
+      <link>/publication/pisa/</link>
+      <pubDate>Sat, 10 Sep 2011 00:00:00 +0000</pubDate>
+      <guid>/publication/pisa/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

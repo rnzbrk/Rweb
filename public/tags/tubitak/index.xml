@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tübitak | Eren Halil Özberk</title>
+    <link>/tags/tubitak/</link>
+      <atom:link href="/tags/tubitak/index.xml" rel="self" type="application/rss+xml" />
+    <description>tübitak</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>tr-Tr</language><copyright>Eren Halil Özberk-2020</copyright><lastBuildDate>Mon, 01 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>tübitak</title>
+      <link>/tags/tubitak/</link>
+    </image>
+    
+    <item>
+      <title>TÜBİTAK 2237- RStudio İle Temel İstatistiksel Yöntemler Eğitimi</title>
+      <link>/talk/rstudio/</link>
+      <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>/talk/rstudio/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

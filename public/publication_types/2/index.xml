@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2 | Eren Halil Özberk</title>
+    <link>/publication_types/2/</link>
+      <atom:link href="/publication_types/2/index.xml" rel="self" type="application/rss+xml" />
+    <description>2</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>tr-Tr</language><copyright>Eren Halil Özberk-2020</copyright><lastBuildDate>Tue, 01 May 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>2</title>
+      <link>/publication_types/2/</link>
+    </image>
+    
+    <item>
+      <title>Software Review of flexMIRT Version 3.5</title>
+      <link>/publication/flexmirt/</link>
+      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
+      <guid>/publication/flexmirt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dezavantajlı Yüksek Başarılı Öğrencilerin Okul ve Öğrenci Düzeyinde Matematik Başarılarını Etkileyen Değişkenlerin İncelenmesi</title>
+      <link>/publication/dezavantajli_hlm/</link>
+      <pubDate>Wed, 04 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>/publication/dezavantajli_hlm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Erasmus Students’ Mobility Priorities A Rank-Order Scaling Study</title>
+      <link>/publication/erasmus/</link>
+      <pubDate>Wed, 01 Nov 2017 00:00:00 +0000</pubDate>
+      <guid>/publication/erasmus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PISA 2012 Matematik Başarısını Etkileyen Faktörlerin Hiyerarşik Lineer Model Kullanılarak İncelenmesi</title>
+      <link>/publication/hacettepe_hlm/</link>
+      <pubDate>Mon, 31 Jul 2017 00:00:00 +0000</pubDate>
+      <guid>/publication/hacettepe_hlm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Basit ve Karmaşık Test Desenlerinde Çok Boyutlu Madde Seçme Yöntemlerinin Karşılaştırılması</title>
+      <link>/publication/epod_mirt/</link>
+      <pubDate>Mon, 06 Mar 2017 00:00:00 +0000</pubDate>
+      <guid>/publication/epod_mirt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hacettepe Üniversitesi Mezun İzleme Çalışması</title>
+      <link>/publication/hacettepe_mezun/</link>
+      <pubDate>Tue, 01 Dec 2015 00:00:00 +0000</pubDate>
+      <guid>/publication/hacettepe_mezun/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

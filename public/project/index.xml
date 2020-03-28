@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects | Eren Halil Özberk</title>
+    <link>/project/</link>
+      <atom:link href="/project/index.xml" rel="self" type="application/rss+xml" />
+    <description>Projects</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>tr-Tr</language><copyright>Eren Halil Özberk-2020</copyright><lastBuildDate>Tue, 25 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Projects</title>
+      <link>/project/</link>
+    </image>
+    
+    <item>
+      <title>Psikometri</title>
+      <link>/project/psikometri/</link>
+      <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/project/psikometri/</guid>
+      <description>&lt;hr&gt;
+&lt;p&gt;Bu kısımda Psikometri konusuna ait projelere yer verilececktir.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PESİP</title>
+      <link>/project/pesip/</link>
+      <pubDate>Wed, 21 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>/project/pesip/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

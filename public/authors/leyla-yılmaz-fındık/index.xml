@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Leyla Yılmaz Fındık | Eren Halil Özberk</title>
+    <link>/authors/leyla-y%C4%B1lmaz-f%C4%B1nd%C4%B1k/</link>
+      <atom:link href="/authors/leyla-y%C4%B1lmaz-f%C4%B1nd%C4%B1k/index.xml" rel="self" type="application/rss+xml" />
+    <description>Leyla Yılmaz Fındık</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>tr-Tr</language><copyright>Eren Halil Özberk-2020</copyright><lastBuildDate>Wed, 04 Apr 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Leyla Yılmaz Fındık</title>
+      <link>/authors/leyla-y%C4%B1lmaz-f%C4%B1nd%C4%B1k/</link>
+    </image>
+    
+    <item>
+      <title>Dezavantajlı Yüksek Başarılı Öğrencilerin Okul ve Öğrenci Düzeyinde Matematik Başarılarını Etkileyen Değişkenlerin İncelenmesi</title>
+      <link>/publication/dezavantajli_hlm/</link>
+      <pubDate>Wed, 04 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>/publication/dezavantajli_hlm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Erasmus Students’ Mobility Priorities A Rank-Order Scaling Study</title>
+      <link>/publication/erasmus/</link>
+      <pubDate>Wed, 01 Nov 2017 00:00:00 +0000</pubDate>
+      <guid>/publication/erasmus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hacettepe Üniversitesi Mezun İzleme Çalışması</title>
+      <link>/publication/hacettepe_mezun/</link>
+      <pubDate>Tue, 01 Dec 2015 00:00:00 +0000</pubDate>
+      <guid>/publication/hacettepe_mezun/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
