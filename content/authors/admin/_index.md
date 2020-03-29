@@ -5,13 +5,13 @@ bio: Başlıca ilgi alanlarım istatistiksel programlama, eğitim istatistiği, 
   matter.
 education:
   courses:
-  - course: Eğitimde Ölçme ve Değerlendirme, PhD
+  - course: Eğitimde Ölçme ve Değerlendirme, Doktora
     institution: Hacettepe Üniversitesi
     year: 2016
-  - course: Eğitimde Ölçme ve Değerlendirme, M.Ed
+  - course: Eğitimde Ölçme ve Değerlendirme, Yüksek Lisans
     institution: Hacettepe Üniversitesi
     year: 2010
-  - course: İlköğretim Matematik Öğretmenliği, B.Ed 
+  - course: İlköğretim Matematik Öğretmenliği, Lisans 
     institution: Mersin Üniversitesi
     year: 2006
 email: ""
