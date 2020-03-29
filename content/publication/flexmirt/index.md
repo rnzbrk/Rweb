@@ -26,7 +26,9 @@ publishDate: "2018-05-01T00:00:00Z"
 slides: 
 summary: This review evaluates the software from a user’s perspective as well as some of its calibration, scoring, and simulation capabilities.
 tags:
-- Source Themes
+- flexmirt
+- madde tepki kuramı
+- yazılım
 title: Software Review of flexMIRT Version 3.5 
 url_code: ""
 url_dataset: ""

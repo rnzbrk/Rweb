@@ -5,12 +5,20 @@
     <link>/tags/madde-tepki-kuram%C4%B1/</link>
       <atom:link href="/tags/madde-tepki-kuram%C4%B1/index.xml" rel="self" type="application/rss+xml" />
     <description>madde tepki kuramı</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>tr-Tr</language><copyright>Eren Halil Özberk-2020</copyright><lastBuildDate>Mon, 06 Mar 2017 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>tr-Tr</language><copyright>Eren Halil Özberk-2020</copyright><lastBuildDate>Tue, 01 May 2018 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>madde tepki kuramı</title>
       <link>/tags/madde-tepki-kuram%C4%B1/</link>
     </image>
+    
+    <item>
+      <title>Software Review of flexMIRT Version 3.5</title>
+      <link>/publication/flexmirt/</link>
+      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
+      <guid>/publication/flexmirt/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Basit ve Karmaşık Test Desenlerinde Çok Boyutlu Madde Seçme Yöntemlerinin Karşılaştırılması</title>
