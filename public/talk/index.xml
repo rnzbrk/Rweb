@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Deneyim | Eren Halil Özberk</title>
+    <title>Etkinlikler | Eren Halil Özberk</title>
     <link>/talk/</link>
       <atom:link href="/talk/index.xml" rel="self" type="application/rss+xml" />
-    <description>Deneyim</description>
+    <description>Etkinlikler</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>tr-Tr</language><copyright>Eren Halil Özberk-2020</copyright><lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
-      <title>Deneyim</title>
+      <title>Etkinlikler</title>
       <link>/talk/</link>
     </image>
     

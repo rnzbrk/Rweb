@@ -2,6 +2,6 @@
 header:
   caption: ""
   image: ""
-title: Deneyim 
+title: Etkinlikler 
 view: 2
 ---
