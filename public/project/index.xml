@@ -13,6 +13,16 @@
     </image>
     
     <item>
+      <title>Deneme</title>
+      <link>/project/deneme/</link>
+      <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>/project/deneme/</guid>
+      <description>&lt;hr&gt;
+&lt;p&gt;Bu kısımda Psikometri konusuna ait projelere yer verilececktir.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Psikometri</title>
       <link>/project/psikometri/</link>
       <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
