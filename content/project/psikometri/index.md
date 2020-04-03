@@ -2,8 +2,8 @@
 date: "2020-02-25T00:00:00Z"
 external_link: ""
 image:
-  caption:
-  focal_point: Smart
+  caption: 'Image credit: Photo by Chris Liverani on Unsplash'
+  focal_point: Smart 
 links:
 - icon: github
   icon_pack: fab
