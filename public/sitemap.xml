@@ -18,8 +18,58 @@
   </url>
   
   <url>
-    <loc>/project/deneme/</loc>
-    <lastmod>2020-02-25T00:00:00+00:00</lastmod>
+    <loc>/authors/admin/</loc>
+    <lastmod>2020-04-20T13:42:26+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/</loc>
+    <lastmod>2020-04-20T13:42:26+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <lastmod>2020-04-20T13:42:26+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/coronavirus/</loc>
+    <lastmod>2020-04-20T13:42:26+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/ggplot/</loc>
+    <lastmod>2020-04-20T13:42:26+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/koronavirus/</loc>
+    <lastmod>2020-04-20T13:42:26+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-04-20T13:42:26+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/veri-gorsellestirme/</loc>
+    <lastmod>2020-04-20T13:42:26+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/veri-gorsellestirme/</loc>
+    <lastmod>2020-04-20T13:42:26+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-04-20T13:42:26+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/interaktif-grafik-ornekleri-koronavirus-verisi/</loc>
+    <lastmod>2020-04-20T13:42:26+03:00</lastmod>
   </url>
   
   <url>
@@ -30,21 +80,6 @@
   <url>
     <loc>/project/psikometri/</loc>
     <lastmod>2020-02-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/admin/</loc>
-    <lastmod>2019-09-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/</loc>
-    <lastmod>2019-09-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -78,18 +113,8 @@
   </url>
   
   <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/veri-analizi/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2019-09-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -118,11 +143,6 @@
   </url>
   
   <url>
-    <loc>/post/writing-technical-content/</loc>
-    <lastmod>2019-07-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/r-egitimi/</loc>
     <lastmod>2019-07-01T00:00:00+00:00</lastmod>
   </url>
@@ -140,11 +160,6 @@
   <url>
     <loc>/courses/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/jupyter/</loc>
-    <lastmod>2019-09-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -400,21 +415,6 @@
   <url>
     <loc>/authors/robert-ford/</loc>
     <lastmod>2016-07-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/academic/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/getting-started/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/demo/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
