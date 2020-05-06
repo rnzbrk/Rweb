@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="Bu site, kullanıcıların ilettikleri kişisel bilgilerini, Gizlilik Politikası ile belirlenen amaçlar ve kapsam dışında, üçüncü kişilere açıklamayacaktır.
+  <meta name="description" content="Bu site (www.erenozberk.com), kullanıcıların ilettikleri kişisel bilgilerini, Gizlilik Politikası ile belirlenen amaçlar ve kapsam dışında, üçüncü kişilere açıklamayacaktır.
   Kişisel bilgiler, ad soyadı, adresi, telefon numarası, e-posta adresi gibi kullanıcıyı tanımlamaya yönelik her türlü diğer bilgiyi içermekte olup kısaca Gizli Bilgiler olarak anılacaktır.
   İşbu Gizlilik Politikası ve Kullanıcı Sözleşmesinde tanımlı olan haller haricinde kişisel bilgileri herhangi bir şirket veya üçüncü kişilere açıklamayacaktır.
   Kişisel bilgileri kendi bünyesinde müşteri profili belirlemek ve istatistiksel çalışmalar yapmak amacıyla kullanabilecek ve sadece bu çalışmaların yapılması amacıyla 3.">
@@ -209,6 +209,44 @@
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164705434-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-164705434-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
   
 
 
@@ -237,7 +275,7 @@
   <meta property="og:site_name" content="Eren Halil Özberk">
   <meta property="og:url" content="/privacy/">
   <meta property="og:title" content="Gizlilik Politikası | Eren Halil Özberk">
-  <meta property="og:description" content="Bu site, kullanıcıların ilettikleri kişisel bilgilerini, Gizlilik Politikası ile belirlenen amaçlar ve kapsam dışında, üçüncü kişilere açıklamayacaktır.
+  <meta property="og:description" content="Bu site (www.erenozberk.com), kullanıcıların ilettikleri kişisel bilgilerini, Gizlilik Politikası ile belirlenen amaçlar ve kapsam dışında, üçüncü kişilere açıklamayacaktır.
   Kişisel bilgiler, ad soyadı, adresi, telefon numarası, e-posta adresi gibi kullanıcıyı tanımlamaya yönelik her türlü diğer bilgiyi içermekte olup kısaca Gizli Bilgiler olarak anılacaktır.
   İşbu Gizlilik Politikası ve Kullanıcı Sözleşmesinde tanımlı olan haller haricinde kişisel bilgileri herhangi bir şirket veya üçüncü kişilere açıklamayacaktır.
   Kişisel bilgileri kendi bünyesinde müşteri profili belirlemek ve istatistiksel çalışmalar yapmak amacıyla kullanabilecek ve sadece bu çalışmaların yapılması amacıyla 3."><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
@@ -616,7 +654,7 @@
     <div class="article-style">
       <ul>
 <li>
-<p>Bu site, kullanıcıların ilettikleri kişisel bilgilerini, Gizlilik Politikası ile belirlenen amaçlar ve kapsam dışında, üçüncü kişilere açıklamayacaktır.</p>
+<p>Bu site (<a href="http://www.erenozberk.com">www.erenozberk.com</a>), kullanıcıların ilettikleri kişisel bilgilerini, Gizlilik Politikası ile belirlenen amaçlar ve kapsam dışında, üçüncü kişilere açıklamayacaktır.</p>
 </li>
 <li>
 <p>Kişisel bilgiler, ad soyadı, adresi, telefon numarası, e-posta adresi gibi kullanıcıyı tanımlamaya yönelik her türlü diğer bilgiyi içermekte olup kısaca Gizli Bilgiler olarak anılacaktır.</p>

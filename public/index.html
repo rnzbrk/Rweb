@@ -44,6 +44,9 @@
 
   
   
+  
+  <script src="/js/mathjax-config.js"></script>
+  
 
   
   
@@ -174,9 +177,9 @@
 
       
       
-        
-      
 
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
       
     
       
@@ -204,6 +207,44 @@
   
 
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164705434-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-164705434-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
 
 
   
@@ -1312,6 +1353,93 @@ Trakya Üniversitesi, Eğitim Bilimleri Bölümü, Eğitimde Ölçme ve Değerle
   <div class="media-body">
 
     <h3 class="article-title mb-0 mt-0">
+      <a href="/post/r-ile-nteraktif-grafik-ornekleri-covid-19-verisi/" >R ile İnteraktif Grafik Örnekleri: Covid-19 Verisi</a>
+    </h3>
+
+    
+    <div class="article-style">
+      Bu yazıda interaktif grafikler yardımıyla veri görselleştirmeye bir örnek vereceğim. Buradaki amaç yıllara, aylara ya da haftalara göre …
+    </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          en son güncelleme
+      
+    
+    May 6, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    62 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+      
+    
+      
+        
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
       <a href="/post/nonparametrik/" >R ile Nonparametrik İstatistikler</a>
     </h3>
 
@@ -1400,104 +1528,7 @@ Trakya Üniversitesi, Eğitim Bilimleri Bölümü, Eğitimde Ölçme ve Değerle
 
       
     
-      
-        
 
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/writing-technical-content/" >Writing technical content in Academic</a>
-    </h3>
-
-    
-    <div class="article-style">
-      Academic is designed to give technical content creators a seamless experience. You can focus on the content and Academic handles the …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-    
-    Jul 12, 2019
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    4 min read
-  </span>
-  
-
-  
-  
-  
-
-  
-  
-
-</div>
-
-      
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-    
-    <a href="/post/writing-technical-content/" >
-      <img src="/post/writing-technical-content/featured_huc72159e0fc0d14b85f60d34436a630f0_266353_150x0_resize_q90_lanczos.jpg" alt="">
-    </a>
-    
-  </div>
-</div>
-
-      
-    
-
-    
-    <div class="see-all">
-      <a href="/post/">
-        Daha fazla blog içeriği
-        <i class="fas fa-angle-right"></i>
-      </a>
-    </div>
     
 
   </div>
@@ -1591,53 +1622,8 @@ Trakya Üniversitesi, Eğitim Bilimleri Bölümü, Eğitimde Ölçme ve Değerle
   <div class="card">
     
     
-    <a href="/project/deneme/"  class="card-image hover-overlay">
-      <img src="/project/deneme/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_224363_550x0_resize_q90_lanczos.jpg" alt="" class="img-responsive">
-    </a>
-    
-    <div class="card-text">
-      <h4><a href="/project/deneme/" >Deneme</a></h4>
-      
-      <div class="article-style">
-        <p><hr>
-<p>Bu kısımda Psikometri konusuna ait projelere yer verilececktir.</p>
-</p>
-      </div>
-      
-    </div>
-  </div>
-</div>
-
-        
-
-      
-
-        
-        
-        
-
-        
-          
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-<div class="project-card project-item isotope-item ">
-  <div class="card">
-    
-    
     <a href="/project/psikometri/"  class="card-image hover-overlay">
-      <img src="/project/psikometri/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_224363_550x0_resize_q90_lanczos.jpg" alt="" class="img-responsive">
+      <img src="/project/psikometri/featured_hu282e5432632e6cc7855647c97901b671_503226_550x0_resize_q90_lanczos.jpg" alt="" class="img-responsive">
     </a>
     
     <div class="card-text">
@@ -2543,17 +2529,22 @@ Trakya Üniversitesi, Eğitim Bilimleri Bölümü, Eğitimde Ölçme ve Değerle
           
           
           
-          <a href="/tags/academic/" style="font-size:0.7rem">Academic</a>
-        
-          
-          
-          
           <a href="/tags/arima/" style="font-size:0.7rem">ARIMA</a>
         
           
           
           
           <a href="/tags/bireysellestirilmis-bilgisayarl%C4%B1-testler/" style="font-size:1.1630693432404289rem">bireyselleştirilmiş bilgisayarlı testler</a>
+        
+          
+          
+          
+          <a href="/tags/coronavirus/" style="font-size:0.7rem">coronavirus</a>
+        
+          
+          
+          
+          <a href="/tags/covid19/" style="font-size:0.7rem">covid19</a>
         
           
           
@@ -2579,11 +2570,6 @@ Trakya Üniversitesi, Eğitim Bilimleri Bölümü, Eğitimde Ölçme ve Değerle
           
           
           <a href="/tags/etki-analizi/" style="font-size:0.7rem">etki analizi</a>
-        
-          
-          
-          
-          <a href="/tags/flexmirt/" style="font-size:0.7rem">flexmirt</a>
         
           
           
@@ -2904,16 +2890,6 @@ Trakya Üniversitesi, Eğitim Bilimleri Bölümü, Eğitimde Ölçme ve Değerle
   
   <div class="container">
     <footer class="site-footer">
-  
-  <p class="powered-by">
-    
-      <a href="/privacy/">Gizlilik Politikası</a>
-    
-    
-       &middot; 
-      <a href="/terms/">Kullanım Koşulları</a>
-    
-  </p>
   
 
   <p class="powered-by">

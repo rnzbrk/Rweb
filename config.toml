@@ -21,6 +21,7 @@ copyright = "Eren Halil Özberk-2020"
 
 # Name of Academic theme folder in `themes/`.
 theme = "hugo-academic"
+googleAnalytics = "UA-164705434-1"
 
 # Get last modified date for content from Git?
 enableGitInfo = false
