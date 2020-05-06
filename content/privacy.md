@@ -11,7 +11,7 @@ title: Gizlilik Politikası
 ---
 
 
-- Bu site (www.erenozberk.com), kullanıcıların ilettikleri kişisel bilgilerini, Gizlilik Politikası ile belirlenen amaçlar ve kapsam dışında, üçüncü kişilere açıklamayacaktır.
+- Bu site, kullanıcıların ilettikleri kişisel bilgilerini, Gizlilik Politikası ile belirlenen amaçlar ve kapsam dışında, üçüncü kişilere açıklamayacaktır.
 
 - Kişisel bilgiler, ad soyadı, adresi, telefon numarası, e-posta adresi gibi kullanıcıyı tanımlamaya yönelik her türlü diğer bilgiyi içermekte olup kısaca Gizli Bilgiler olarak anılacaktır.
 
