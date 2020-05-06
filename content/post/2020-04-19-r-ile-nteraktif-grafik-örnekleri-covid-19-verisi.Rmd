@@ -1,0 +1,269 @@
+---
+title: 'R ile İnteraktif Grafik Örnekleri: Covid-19 Verisi'
+author: admin
+date: '2020-04-19'
+slug: r-ile-nteraktif-grafik-örnekleri-covid-19-verisi
+categories:
+  - Veri Görselleştirme
+tags:
+- veri görselleştirme
+- ggplot
+- koronavirüs
+- covid19
+- coronavirus
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-05-06T20:04:05+03:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+Bu yazıda interaktif grafikler yardımıyla veri görselleştirmeye bir örnek vereceğim. Buradaki amaç yıllara, aylara ya da haftalara göre değişen özelliklerin interaktif grafikler yardımıyla oluşturulması ve farklı değişkenlere göre karşılaştırılması olacaktır. 
+
+Ben genelde bu tür grafikleri PISA, TIMMS gibi eğitime dayalı verilerde sıklıkla kullanırım. Bir ya da birçok ülkenin verilerinin yıllara göre değişimlerini karşılaştırlmalı grafiklere dökerim. Bu bakımdan elinizde bu tür veriler var ise kullanışlı bir şekilde grafiğe nasıl dökebilirsiniz bununla ilgili birkaç örnek göstereceğim.
+
+Bu görselleştirmeyi yaparken PISA verilerini kullanacaktım ama malum virüsle yatıp virüsle kalktığımız için Koronavirüs verileri üzerinden bu grafikleme işlemini yapmaya karar verdim. 
+
+Bu yazıda kullanılan tüm veriler [EU Open Data Portal](https://data.europa.eu/euodp/en/data/dataset/covid-19-coronavirus-data){target="_blank"} sayfasından alınmıştır. Linkteki veride tüm ülkelere ait istatistikler bulunmakta. Ancak ben hepsini seçmedim. 19 Nisan 2020 tarihi itibariyle ilk 7'de olan ülkeleri seçtim. Türkiye o anda listenin 7. sırasında bulunmaktaydı. 
+
+Grafikleme işlemlerinde *ggplot* ve *plotly* paketlerini kullandım. Veri düzenlemesinde ise *data.table* ve *tidyderse* paketlerinden yararlandım. 
+
+İsterseniz ilk olarak veriyi okutup yapısına bakalım. 
+
+```{r, echo=TRUE, warning = FALSE, message = FALSE}
+
+
+library(data.table)
+library(ggplot2)
+library(tidyverse)
+library(plotly)  
+
+
+corona <- fread("https://raw.githubusercontent.com/rnzbrk/R-files-/master/corona2.txt",  header=TRUE, sep="\t", encoding = 'UTF-8')
+
+str(corona)
+ 
+
+```
+
+Kullandığım veri orjinal verinin düzenlenmiş halidir. Kullandığım **corona** verisinde haftaları ve günleri kullanıldım. Böylece hafta hafta ve gün gün vaka ve ölüm sayılarını görmek mümkün olacak. Veride ayrıca *Pop* değişkeni ise popülasyonu yani nüfusu göstermektedir. Bu değişkeni ilerleyen zamanlarda illere göre veriler gelirse kullanacağız. 
+
+Veride belirtilen hafta numaraları, 2020 senesinin hafta numaralarını belirtir. Detay için [linke](https://www.epochconverter.com/weeks/2020){target="_blank"} tıklayabilirsiniz. Günler ise haftanın 7 gününü belirtir. 1 Pazartesi ve 7 ise Pazar olarak kodlanmıştır.
+
+Koronavirüs verileri incelendiğinde Çin hariç, dünya genelinde vakaların 15 Şubat itibariyle ortaya çıktığı belirlenmiş ve istatistikler bu tarihi baz alarak yayınlanmıştır [İtalya Örneği](https://www.worldometers.info/coronavirus/country/italy/){target="_blank"}.  Ancak Türkiye'de virüsün ilk görüldüğü tarih diğer ülkelerden geç olarak 12 Mart 2020'dir. *[Kaynak EU Open Data Portal](https://data.europa.eu/euodp/en/data/dataset/covid-19-coronavirus-data){target="_blank"}* . Bu bilgi T.C. Sağlık Bakanlığı'nın sitesinde 10 Mart olarak görülmektedir ancak ben diğer verilerle tutarlı olması açısında EU Open Data verisini kullandım.  *Kaynak [T.C. Sağlık Bakanlığı](https://covid19bilgi.saglik.gov.tr/tr/gunluk-vaka.html){target="_blank"}*
+
+Şimdi isterseniz Türkiye'nin haftalara göre vaka ve ölüm sayılarına bakalım. Çizgilerin üzerine geldiğinizde grafik size hangi haftada olduğunuzu ve vaka/ölüm sayısının ne olduğunu gösterecektir. 
+
+
+
+```{r, echo=TRUE, warning = FALSE, message = FALSE, fig.cap = "Türkiye için Haftalara Göre Vaka Sayısı"}
+
+
+p1 <- corona %>%
+  filter(Ülke == "Türkiye") %>%
+  ggplot(aes(x = Gün, y = Vaka, group = Hafta)) + 
+  geom_line() +
+scale_x_discrete(limits=1:7, labels = c("Pts", "Salı", "Çarş", "Perş","Cuma", "Cts", "Pazar"))
+
+
+
+ggplotly(p1)
+
+
+```
+
+
+
+```{r, echo=TRUE, warning = FALSE, message = FALSE, fig.cap = "Türkiye için Haftalara Göre Ölüm Sayısı"}
+
+
+p2 <- corona %>%
+  filter(Ülke == "Türkiye") %>%
+  ggplot(aes(x = Gün, y = Ölüm, group = Hafta)) + 
+  geom_line(color="red") +
+scale_x_discrete(limits=1:7, labels = c("Pts", "Salı", "Çarş", "Perş","Cuma", "Cts", "Pazar"))
+
+
+
+ggplotly(p2)
+
+
+```
+
+
+Bu grafikler dinamik olmayan grafiklerdir. Grafikleri manipüle edebilmek için Hafta sayısını interaktif olarak kullanabileceğimiz bir formata dönüştürelim. Bu grafikle beraber alt tarafta Hafta numaralarını kontrol edebileceğimiz bir çubuk olacak.  Böylecee haftalar ilerledikçe değişimi daha rahat görebileceğiz. Bu çubuğun başında yer alan *oynat* tuşuna basarak otomatik oynatmayı da isteyebiliriz. Bu tür interaktif bir grafiği kullanırken tek yapmamız gereken yukarıda *group* argümanı yerine *frame* argümanını kullanmak olacak. **12. haftaya kadar hem vaka hem de ölüm olmadığına dikkat ediniz.**
+
+
+
+
+```{r, echo=TRUE, warning = FALSE, message = FALSE, fig.cap = "Türkiye için Haftalara Göre Vaka Sayısı"}
+
+
+p3 <- corona %>%
+  filter(Ülke == "Türkiye") %>%
+  ggplot(aes(x = Gün, y = Vaka, frame = Hafta)) + 
+  geom_line() +
+scale_x_discrete(limits=1:7, labels = c("Pts", "Salı", "Çarş", "Perş","Cuma", "Cts", "Pazar"))
+
+
+
+ggplotly(p3)
+
+
+```
+
+
+
+```{r, echo=TRUE, warning = FALSE, message = FALSE, fig.cap = "Türkiye için Haftalara Göre Ölüm Sayısı"}
+
+
+p4 <- corona %>%
+  filter(Ülke == "Türkiye") %>%
+  ggplot(aes(x = Gün, y = Ölüm, frame = Hafta)) + 
+  geom_line(color="red") +
+scale_x_discrete(limits=1:7, labels = c("Pts", "Salı", "Çarş", "Perş","Cuma", "Cts", "Pazar"))
+
+
+
+ggplotly(p4)
+
+
+```
+
+
+
+Yukarıdaki tablolar tabi ki daha kullanışlı görünüyor. Ancak çoğu kişi ilk versiyonu da seçebilir. Ama biz illa bir seçim yapmak zorunda değiliz. Gelin şimdi Şekil 1 ve 3 ile Şekil 2 ve 4'ü birleştirelim. Böylece interaktif çubuk ilerledikçe diğer haftaların izleri de arka planda olacaktır. 
+
+
+
+
+
+```{r, echo=TRUE, warning = FALSE, message = FALSE, fig.cap = "Türkiye için Haftalara Göre Vaka Sayısı"}
+
+
+p5 <- corona %>%
+  filter(Ülke == "Türkiye") %>%
+  ggplot(aes(x = Gün, y = Vaka)) +
+  geom_line(aes(group = Hafta), alpha = 0.2) +
+  geom_line(aes(frame = Hafta), color = "steelblue", size = 2) +
+scale_x_discrete(limits=1:7, labels = c("Pts", "Salı", "Çarş", "Perş","Cuma", "Cts", "Pazar"))
+
+
+
+ggplotly(p5)
+
+
+```
+
+
+
+```{r, echo=TRUE, warning = FALSE, message = FALSE, fig.cap = "Türkiye için Haftalara Göre Ölüm Sayısı"}
+
+
+p6 <- corona %>%
+  filter(Ülke == "Türkiye") %>%
+  ggplot(aes(x = Gün, y = Ölüm)) +
+  geom_line(aes(group = Hafta), alpha = 0.2) +
+  geom_line(aes(frame = Hafta), color = "red", size = 2) +
+scale_x_discrete(limits=1:7, labels = c("Pts", "Salı", "Çarş", "Perş","Cuma", "Cts", "Pazar"))
+
+
+
+ggplotly(p6)
+
+
+```
+
+
+
+
+Gelelim ülkeleri karşılaştırmaya. Son grafik türünden yararlanarak verimizde bulunan 7 ülkeyi hem vaka hem ölüm sayısı cinsinden karşılaştıralım. Burada kullandığımız *animation_opts(frame = 1000)* argümanı, otomatik veri geçişindeki hızı milisaniye cinsinden ayarlamamızı sağlıyor. 
+
+
+```{r, echo=TRUE, warning = FALSE, message = FALSE, fig.cap = "Ülkelerin Haftalara Göre Karşılaştırmalı Vaka Sayıları"}
+
+
+ p7 <- corona %>%
+  filter(Ülke %in% c("Türkiye", "Amerika", "İspanya", "İtalya", "Almanya", "İngiltere", "Fransa")) %>%
+  ggplot(aes(x = Gün, y = Vaka)) +
+  geom_line(aes(group = Hafta), alpha = 0.2) +
+  geom_line(aes(frame = Hafta), color = "steelblue", size = 1) +
+  facet_grid(. ~ Ülke)  + 
+  scale_x_discrete(limits=1:7, labels = c("P", "S", "Ç", "P","C", "C", "P")) +
+  theme(
+  axis.title.x = element_blank(),
+  axis.title.y = element_blank())
+ 
+ 
+ 
+ ggplotly(p7) %>%
+  animation_opts(frame = 1000)
+
+
+```
+
+
+```{r, echo=TRUE, warning = FALSE, message = FALSE, fig.cap = "Ülkelerin Haftalara Göre Karşılaştırmalı Ölüm Sayıları"}
+
+
+ p8 <- corona %>%
+  filter(Ülke %in% c("Türkiye", "Amerika", "İspanya", "İtalya", "Almanya", "İngiltere", "Fransa")) %>%
+  ggplot(aes(x = Gün, y = Ölüm)) +
+  geom_line(aes(group = Hafta), alpha = 0.2) +
+  geom_line(aes(frame = Hafta), color = "red", size = 1) +
+  facet_grid(. ~ Ülke)  +
+  scale_x_discrete(limits=1:7, labels = c("P", "S", "Ç", "P","C", "C", "P")) +
+  theme(
+  axis.title.x = element_blank(),
+  axis.title.y = element_blank())
+ 
+ 
+ ggplotly(p8)  %>%
+  animation_opts(frame = 1000)
+
+
+```
+
+ Grafiklere bakılacak olursa özellikle haftalara göre vaka sayıları Amerika hariç benzer örüntüler içerirken, ölüm sayısında Türkiye diğer ülkelere göre daha iyi durumdadır. Amerika ise haftalık ölüm sayılarında diğer tüm ülkelerden ileridedir. 
+ 
+ Son olarak da Vaka-Ölüm sayısını düzgünleştirerek verelim. Böylece Vaka sayısı arttıkça ölüm sayıları nasıl seyrediyor onu net bir şekillde görebiliriz. Şekil 9'da Amerika uç değer olduğundan diğer ülkelerin durumları pek net görülememektedir. Ancak şekil 10'da aynı  grafik Amerika hariç tekrar çizilmiştir. Burada dikkat edileceği gibi Fransa ve İngiltere'nin düşüşe geçtiği görülebilir. Türkiye'de ise şimdilik vaka sayısı arttıkça ölüm sayısının arttığını görmekteyiz. 
+ 
+ 
+ 
+ 
+```{r, echo=TRUE, warning = FALSE, message = FALSE, fig.cap = "Ülkelerin Vaka-Ölüm Eğilimleri"}
+
+
+p9 <- ggplot(corona, aes(x = Vaka, y = Ölüm, color = Ülke)) + 
+  geom_point(alpha = 0.5) + 
+  geom_smooth()
+p9
+
+
+```
+
+
+
+ 
+```{r, echo=TRUE, warning = FALSE, message = FALSE, fig.cap = "Ülkelerin Vaka-Ölüm Eğilimleri (Amerika Hariç)"}
+
+
+corona2 <- corona %>%
+  filter(Ülke %in% c("Türkiye", "İspanya", "İtalya", "Almanya", "İngiltere", "Fransa"))
+  
+  
+  p10 <- ggplot(corona2, aes(x = Vaka, y = Ölüm, color = Ülke)) + 
+  geom_point(alpha = 0.5) + 
+  geom_smooth()
+
+  p10
+  
+
+```
+
+ 

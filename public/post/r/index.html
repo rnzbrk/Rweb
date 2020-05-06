@@ -28,13 +28,11 @@
   
     
   
-  <meta name="description" content="Academic is designed to give technical content creators a seamless experience. You can focus on the content and Academic handles the rest.
-Highlight your code snippets, take notes on math classes, and draw diagrams from textual representation.
-On this page, you&rsquo;ll find some examples of the types of technical content that can be rendered with Academic.
-Examples Code Academic supports a Markdown extension for highlighting code syntax. You can enable this feature by toggling the highlight option in your config/_default/params.">
+  <meta name="description" content="Bu yazıda interaktif grafikler yardımıyla veri görselleştirmeye bir örnek vereceğim. Buradaki amaç yıllara, aylara ya da haftalara göre değişen özelliklerin interaktif grafikler yardımıyla oluşturulması ve farklı değişkenlere göre karşılaştırılması olacaktır.
+Ben genelde bu tür grafikleri PISA, TIMMS gibi eğitime dayalı verilerde sıklıkla kullanırım. Bir ya da birçok ülkenin verilerinin yıllara göre değişimlerini karşılaştırlmalı grafiklere dökerim. Bu bakımdan elinizde bu tür veriler var ise kullanışlı bir şekilde grafiğe nasıl dökebilirsiniz bununla ilgili birkaç örnek göstereceğim.">
 
   
-  <link rel="alternate" hreflang="tr-Tr" href="/post/writing-technical-content/">
+  <link rel="alternate" hreflang="tr-Tr" href="/post/r/">
 
   
 
@@ -46,9 +44,6 @@ Examples Code Academic supports a Markdown extension for highlighting code synta
   
 
   
-  
-  
-  <script src="/js/mathjax-config.js"></script>
   
 
   
@@ -180,9 +175,9 @@ Examples Code Academic supports a Markdown extension for highlighting code synta
 
       
       
-
+        
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+
       
     
       
@@ -212,6 +207,44 @@ Examples Code Academic supports a Markdown extension for highlighting code synta
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164705434-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-164705434-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
   
 
 
@@ -221,7 +254,7 @@ Examples Code Academic supports a Markdown extension for highlighting code synta
   <link rel="icon" type="image/png" href="/images/icon_hu7ee3a79fadf0087cc22d867350428c45_40262_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu7ee3a79fadf0087cc22d867350428c45_40262_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="/post/writing-technical-content/">
+  <link rel="canonical" href="/post/r/">
 
   
   
@@ -229,26 +262,25 @@ Examples Code Academic supports a Markdown extension for highlighting code synta
   
   
     
+    
   
   
-  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:card" content="summary">
   
   <meta property="twitter:site" content="@rnzbrk">
   <meta property="twitter:creator" content="@rnzbrk">
   
   <meta property="og:site_name" content="Eren Halil Özberk">
-  <meta property="og:url" content="/post/writing-technical-content/">
-  <meta property="og:title" content="Writing technical content in Academic | Eren Halil Özberk">
-  <meta property="og:description" content="Academic is designed to give technical content creators a seamless experience. You can focus on the content and Academic handles the rest.
-Highlight your code snippets, take notes on math classes, and draw diagrams from textual representation.
-On this page, you&rsquo;ll find some examples of the types of technical content that can be rendered with Academic.
-Examples Code Academic supports a Markdown extension for highlighting code syntax. You can enable this feature by toggling the highlight option in your config/_default/params."><meta property="og:image" content="/post/writing-technical-content/featured.jpg">
-  <meta property="twitter:image" content="/post/writing-technical-content/featured.jpg"><meta property="og:locale" content="tr-Tr">
+  <meta property="og:url" content="/post/r/">
+  <meta property="og:title" content="R | Eren Halil Özberk">
+  <meta property="og:description" content="Bu yazıda interaktif grafikler yardımıyla veri görselleştirmeye bir örnek vereceğim. Buradaki amaç yıllara, aylara ya da haftalara göre değişen özelliklerin interaktif grafikler yardımıyla oluşturulması ve farklı değişkenlere göre karşılaştırılması olacaktır.
+Ben genelde bu tür grafikleri PISA, TIMMS gibi eğitime dayalı verilerde sıklıkla kullanırım. Bir ya da birçok ülkenin verilerinin yıllara göre değişimlerini karşılaştırlmalı grafiklere dökerim. Bu bakımdan elinizde bu tür veriler var ise kullanışlı bir şekilde grafiğe nasıl dökebilirsiniz bununla ilgili birkaç örnek göstereceğim."><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
+  <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="tr-Tr">
   
     
-      <meta property="article:published_time" content="2019-07-12T00:00:00&#43;00:00">
+      <meta property="article:published_time" content="2020-05-06T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2019-07-12T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2020-05-06T19:57:04&#43;03:00">
   
 
   
@@ -272,16 +304,12 @@ Examples Code Academic supports a Markdown extension for highlighting code synta
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "/post/writing-technical-content/"
+    "@id": "/post/r/"
   },
-  "headline": "Writing technical content in Academic",
+  "headline": "R",
   
-  "image": [
-    "/post/writing-technical-content/featured.jpg"
-  ],
-  
-  "datePublished": "2019-07-12T00:00:00Z",
-  "dateModified": "2019-07-12T00:00:00Z",
+  "datePublished": "2020-05-06T00:00:00Z",
+  "dateModified": "2020-05-06T19:57:04+03:00",
   
   "author": {
     "@type": "Person",
@@ -296,7 +324,7 @@ Examples Code Academic supports a Markdown extension for highlighting code synta
       "url": "/images/icon_hu7ee3a79fadf0087cc22d867350428c45_40262_192x192_fill_lanczos_center_2.png"
     }
   },
-  "description": "Academic is designed to give technical content creators a seamless experience. You can focus on the content and Academic handles the rest.\nHighlight your code snippets, take notes on math classes, and draw diagrams from textual representation.\nOn this page, you\u0026rsquo;ll find some examples of the types of technical content that can be rendered with Academic.\nExamples Code Academic supports a Markdown extension for highlighting code syntax. You can enable this feature by toggling the highlight option in your config/_default/params."
+  "description": "Bu yazıda interaktif grafikler yardımıyla veri görselleştirmeye bir örnek vereceğim. Buradaki amaç yıllara, aylara ya da haftalara göre değişen özelliklerin interaktif grafikler yardımıyla oluşturulması ve farklı değişkenlere göre karşılaştırılması olacaktır.\nBen genelde bu tür grafikleri PISA, TIMMS gibi eğitime dayalı verilerde sıklıkla kullanırım. Bir ya da birçok ülkenin verilerinin yıllara göre değişimlerini karşılaştırlmalı grafiklere dökerim. Bu bakımdan elinizde bu tür veriler var ise kullanışlı bir şekilde grafiğe nasıl dökebilirsiniz bununla ilgili birkaç örnek göstereceğim."
 }
 </script>
 
@@ -314,7 +342,7 @@ Examples Code Academic supports a Markdown extension for highlighting code synta
 
 
 
-  <title>Writing technical content in Academic | Eren Halil Özberk</title>
+  <title>R | Eren Halil Özberk</title>
 
 </head>
 
@@ -606,24 +634,18 @@ Examples Code Academic supports a Markdown extension for highlighting code synta
 
 
 
-
-
-
-
-
-
-
+  
 
   
   
-
-
+  
 <div class="article-container pt-3">
-  <h1>Writing technical content in Academic</h1>
+  <h1>R</h1>
 
   
 
   
+    
 
 
 <div class="article-metadata">
@@ -636,8 +658,10 @@ Examples Code Academic supports a Markdown extension for highlighting code synta
     
     
       
+          en son güncelleme
+      
     
-    Jul 12, 2019
+    May 6, 2020
   </span>
   
 
@@ -646,7 +670,7 @@ Examples Code Academic supports a Markdown extension for highlighting code synta
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    4 min read
+    5 min read
   </span>
   
 
@@ -659,29 +683,22 @@ Examples Code Academic supports a Markdown extension for highlighting code synta
 
 </div>
 
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
-
-<div class="article-header container-fluid featured-image-wrapper mt-4 mb-4" style="max-width: 2000px; max-height: 1333px;">
-  <div style="position: relative">
-    <img src="/post/writing-technical-content/featured.jpg" alt="" class="featured-image">
-    <span class="article-header-caption">Image credit: <a href="https://unsplash.com/photos/OGZtQF8iC0g"><strong>John Moeses Bauan</strong></a></span>
-  </div>
 </div>
 
 
@@ -689,232 +706,188 @@ Examples Code Academic supports a Markdown extension for highlighting code synta
   <div class="article-container">
 
     <div class="article-style">
-      <p>Academic is designed to give technical content creators a seamless experience. You can focus on the content and Academic handles the rest.</p>
-<p><strong>Highlight your code snippets, take notes on math classes, and draw diagrams from textual representation.</strong></p>
-<p>On this page, you&rsquo;ll find some examples of the types of technical content that can be rendered with Academic.</p>
-<h2 id="examples">Examples</h2>
-<h3 id="code">Code</h3>
-<p>Academic supports a Markdown extension for highlighting code syntax. You can enable this feature by toggling the <code>highlight</code> option in your <code>config/_default/params.toml</code> file.</p>
-<pre><code>```python
-import pandas as pd
-data = pd.read_csv(&quot;data.csv&quot;)
-data.head()
-```
-</code></pre>
-<p>renders as</p>
-<pre><code class="language-python">import pandas as pd
-data = pd.read_csv(&quot;data.csv&quot;)
-data.head()
-</code></pre>
-<h3 id="math">Math</h3>
-<p>Academic supports a Markdown extension for $\LaTeX$ math. You can enable this feature by toggling the <code>math</code> option in your <code>config/_default/params.toml</code> file.</p>
-<p>To render <em>inline</em> or <em>block</em> math, wrap your LaTeX math with <code>$...$</code> or <code>$$...$$</code>, respectively.</p>
-<p>Example <strong>math block</strong>:</p>
-<pre><code class="language-tex">$$\gamma_{n} = \frac{ 
-\left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T 
-\left [\nabla F (\mathbf x_{n}) - \nabla F (\mathbf x_{n-1}) \right ] \right |}
-{\left \|\nabla F(\mathbf{x}_{n}) - \nabla F(\mathbf{x}_{n-1}) \right \|^2}$$
-</code></pre>
-<p>renders as</p>
-<p>$$\gamma_{n} = \frac{ \left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T \left [\nabla F (\mathbf x_{n}) - \nabla F (\mathbf x_{n-1}) \right ] \right |}{\left |\nabla F(\mathbf{x}_{n}) - \nabla F(\mathbf{x}_{n-1}) \right |^2}$$</p>
-<p>Example <strong>inline math</strong> <code>$\nabla F(\mathbf{x}_{n})$</code> renders as $\nabla F(\mathbf{x}_{n})$.</p>
-<p>Example <strong>multi-line math</strong> using the <code>\\</code> math linebreak:</p>
-<pre><code class="language-tex">$$f(k;p_0^*) = \begin{cases} p_0^* &amp; \text{if }k=1, \\
-1-p_0^* &amp; \text {if }k=0.\end{cases}$$
-</code></pre>
-<p>renders as</p>
-<p>$$f(k;p_0^*) = \begin{cases} p_0^* &amp; \text{if }k=1, \<br>
-1-p_0^* &amp; \text {if }k=0.\end{cases}$$</p>
-<h3 id="diagrams">Diagrams</h3>
-<p>Academic supports a Markdown extension for diagrams. You can enable this feature by toggling the <code>diagram</code> option in your <code>config/_default/params.toml</code> file or by adding <code>diagram: true</code> to your page front matter.</p>
-<p>An example <strong>flowchart</strong>:</p>
-<pre><code>```mermaid
-graph TD
-A[Hard] --&gt;|Text| B(Round)
-B --&gt; C{Decision}
-C --&gt;|One| D[Result 1]
-C --&gt;|Two| E[Result 2]
-```
-</code></pre>
-<p>renders as</p>
-<pre><code class="language-mermaid">graph TD
-A[Hard] --&gt;|Text| B(Round)
-B --&gt; C{Decision}
-C --&gt;|One| D[Result 1]
-C --&gt;|Two| E[Result 2]
-</code></pre>
-<p>An example <strong>sequence diagram</strong>:</p>
-<pre><code>```mermaid
-sequenceDiagram
-Alice-&gt;&gt;John: Hello John, how are you?
-loop Healthcheck
-    John-&gt;&gt;John: Fight against hypochondria
-end
-Note right of John: Rational thoughts!
-John--&gt;&gt;Alice: Great!
-John-&gt;&gt;Bob: How about you?
-Bob--&gt;&gt;John: Jolly good!
-```
-</code></pre>
-<p>renders as</p>
-<pre><code class="language-mermaid">sequenceDiagram
-Alice-&gt;&gt;John: Hello John, how are you?
-loop Healthcheck
-    John-&gt;&gt;John: Fight against hypochondria
-end
-Note right of John: Rational thoughts!
-John--&gt;&gt;Alice: Great!
-John-&gt;&gt;Bob: How about you?
-Bob--&gt;&gt;John: Jolly good!
-</code></pre>
-<p>An example <strong>Gantt diagram</strong>:</p>
-<pre><code>```mermaid
-gantt
-section Section
-Completed :done,    des1, 2014-01-06,2014-01-08
-Active        :active,  des2, 2014-01-07, 3d
-Parallel 1   :         des3, after des1, 1d
-Parallel 2   :         des4, after des1, 1d
-Parallel 3   :         des5, after des3, 1d
-Parallel 4   :         des6, after des4, 1d
-```
-</code></pre>
-<p>renders as</p>
-<pre><code class="language-mermaid">gantt
-section Section
-Completed :done,    des1, 2014-01-06,2014-01-08
-Active        :active,  des2, 2014-01-07, 3d
-Parallel 1   :         des3, after des1, 1d
-Parallel 2   :         des4, after des1, 1d
-Parallel 3   :         des5, after des3, 1d
-Parallel 4   :         des6, after des4, 1d
-</code></pre>
-<p>An example <strong>class diagram</strong>:</p>
-<pre><code>```mermaid
-classDiagram
-Class01 &lt;|-- AveryLongClass : Cool
-&lt;&lt;interface&gt;&gt; Class01
-Class09 --&gt; C2 : Where am i?
-Class09 --* C3
-Class09 --|&gt; Class07
-Class07 : equals()
-Class07 : Object[] elementData
-Class01 : size()
-Class01 : int chimp
-Class01 : int gorilla
-class Class10 {
-  &lt;&lt;service&gt;&gt;
-  int id
-  size()
-}
-```
-</code></pre>
-<p>renders as</p>
-<pre><code class="language-mermaid">classDiagram
-Class01 &lt;|-- AveryLongClass : Cool
-&lt;&lt;interface&gt;&gt; Class01
-Class09 --&gt; C2 : Where am i?
-Class09 --* C3
-Class09 --|&gt; Class07
-Class07 : equals()
-Class07 : Object[] elementData
-Class01 : size()
-Class01 : int chimp
-Class01 : int gorilla
-class Class10 {
-  &lt;&lt;service&gt;&gt;
-  int id
-  size()
-}
-</code></pre>
-<p>An example <strong>state diagram</strong>:</p>
-<pre><code>```mermaid
-stateDiagram
-[*] --&gt; Still
-Still --&gt; [*]
-Still --&gt; Moving
-Moving --&gt; Still
-Moving --&gt; Crash
-Crash --&gt; [*]
-```
-</code></pre>
-<p>renders as</p>
-<pre><code class="language-mermaid">stateDiagram
-[*] --&gt; Still
-Still --&gt; [*]
-Still --&gt; Moving
-Moving --&gt; Still
-Moving --&gt; Crash
-Crash --&gt; [*]
-</code></pre>
-<h3 id="todo-lists">Todo lists</h3>
-<p>You can even write your todo lists in Academic too:</p>
-<pre><code class="language-markdown">- [x] Write math example
-- [x] Write diagram example
-- [ ] Do something else
-</code></pre>
-<p>renders as</p>
-<ul>
-<li><input checked="" disabled="" type="checkbox">Write math example</li>
-<li><input checked="" disabled="" type="checkbox">Write diagram example</li>
-<li><input disabled="" type="checkbox">Do something else</li>
-</ul>
-<h3 id="tables">Tables</h3>
-<p>Represent your data in tables:</p>
-<pre><code class="language-markdown">| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
-</code></pre>
-<p>renders as</p>
-<table>
-<thead>
-<tr>
-<th>First Header</th>
-<th>Second Header</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Content Cell</td>
-<td>Content Cell</td>
-</tr>
-<tr>
-<td>Content Cell</td>
-<td>Content Cell</td>
-</tr>
-</tbody>
-</table>
-<h3 id="asides">Asides</h3>
-<p>Academic supports a 
-<a href="https://sourcethemes.com/academic/docs/writing-markdown-latex/#alerts" target="_blank" rel="noopener">shortcode for asides</a>, also referred to as <em>notices</em>, <em>hints</em>, or <em>alerts</em>. By wrapping a paragraph in <code>{{% alert note %}} ... {{% /alert %}}</code>, it will render as an aside.</p>
-<pre><code class="language-markdown">{{% alert note %}}
-A Markdown aside is useful for displaying notices, hints, or definitions to your readers.
-{{% /alert %}}
-</code></pre>
-<p>renders as</p>
-<div class="alert alert-note">
-  <div>
-    A Markdown aside is useful for displaying notices, hints, or definitions to your readers.
-  </div>
-</div>
-<h3 id="icons">Icons</h3>
-<p>Academic enables you to use a wide range of 
-<a href="https://sourcethemes.com/academic/docs/page-builder/#icons" target="_blank" rel="noopener">icons from <em>Font Awesome</em> and <em>Academicons</em></a> in addition to 
-<a href="https://sourcethemes.com/academic/docs/writing-markdown-latex/#emojis" target="_blank" rel="noopener">emojis</a>.</p>
-<p>Here are some examples using the <code>icon</code> shortcode to render icons:</p>
-<pre><code class="language-markdown">{{&lt; icon name=&quot;terminal&quot; pack=&quot;fas&quot; &gt;}} Terminal  
-{{&lt; icon name=&quot;python&quot; pack=&quot;fab&quot; &gt;}} Python  
-{{&lt; icon name=&quot;r-project&quot; pack=&quot;fab&quot; &gt;}} R
-</code></pre>
-<p>renders as</p>
-<p>
-  <i class="fas fa-terminal  pr-1 fa-fw"></i> Terminal<br>
+      <p>Bu yazıda interaktif grafikler yardımıyla veri görselleştirmeye bir örnek vereceğim. Buradaki amaç yıllara, aylara ya da haftalara göre değişen özelliklerin interaktif grafikler yardımıyla oluşturulması ve farklı değişkenlere göre karşılaştırılması olacaktır.</p>
+<p>Ben genelde bu tür grafikleri PISA, TIMMS gibi eğitime dayalı verilerde sıklıkla kullanırım. Bir ya da birçok ülkenin verilerinin yıllara göre değişimlerini karşılaştırlmalı grafiklere dökerim. Bu bakımdan elinizde bu tür veriler var ise kullanışlı bir şekilde grafiğe nasıl dökebilirsiniz bununla ilgili birkaç örnek göstereceğim.</p>
+<p>Bu görselleştirmeyi yaparken PISA verilerini kullanacaktım ama malum virüsle yatıp virüsle kalktığımız için Koronavirüs verileri üzerinden bu grafikleme işlemini yapmaya karar verdim.</p>
+<p>Bu yazıda kullanılan tüm veriler 
+<a href="https://data.europa.eu/euodp/en/data/dataset/covid-19-coronavirus-data" target="_blank" rel="noopener">EU Open Data Portal</a>{target=&rdquo;_blank&rdquo;} sayfasından alınmıştır. Linkteki veride tüm ülkelere ait istatistikler bulunmakta. Ancak ben hepsini seçmedim. 19 Nisan 2020 tarihi itibariyle ilk 7&rsquo;de olan ülkeleri seçtim. Türkiye o anda listenin 7. sırasında bulunmaktaydı.</p>
+<p>Grafikleme işlemlerinde <em>ggplot</em> ve <em>plotly</em> paketlerini kullandım. Veri düzenlemesinde ise <em>data.table</em> ve <em>tidyderse</em> paketlerinden yararlandım.</p>
+<p>İsterseniz ilk olarak veriyi okutup yapısına bakalım.</p>
+<pre><code class="language-{r,">
 
-  <i class="fab fa-python  pr-1 fa-fw"></i> Python<br>
+library(data.table)
+library(ggplot2)
+library(tidyverse)
+library(plotly)  
 
-  <i class="fab fa-r-project  pr-1 fa-fw"></i> R</p>
-<h3 id="did-you-find-this-page-helpful-consider-sharing-it-">Did you find this page helpful? Consider sharing it 🙌</h3>
+
+corona &lt;- fread(&quot;https://raw.githubusercontent.com/rnzbrk/R-files-/master/corona2.txt&quot;,  header=TRUE, sep=&quot;\t&quot;, encoding = 'UTF-8')
+
+str(corona)
+ 
+
+</code></pre>
+<p>Kullandığım veri orjinal verinin düzenlenmiş halidir. Kullandığım <strong>corona</strong> verisinde haftaları ve günleri kullanıldım. Böylece hafta hafta ve gün gün vaka ve ölüm sayılarını görmek mümkün olacak. Veride ayrıca <em>Pop</em> değişkeni ise popülasyonu yani nüfusu göstermektedir. Bu değişkeni ilerleyen zamanlarda illere göre veriler gelirse kullanacağız.</p>
+<p>Veride belirtilen hafta numaraları, 2020 senesinin hafta numaralarını belirtir. Detay için 
+<a href="https://www.epochconverter.com/weeks/2020" target="_blank" rel="noopener">linke</a>{target=&rdquo;_blank&rdquo;} tıklayabilirsiniz. Günler ise haftanın 7 gününü belirtir. 1 Pazartesi ve 7 ise Pazar olarak kodlanmıştır.</p>
+<p>Koronavirüs verileri incelendiğinde Çin hariç, dünya genelinde vakaların 15 Şubat itibariyle ortaya çıktığı belirlenmiş ve istatistikler bu tarihi baz alarak yayınlanmıştır 
+<a href="https://www.worldometers.info/coronavirus/country/italy/" target="_blank" rel="noopener">İtalya Örneği</a>{target=&rdquo;_blank&rdquo;}.  Ancak Türkiye&rsquo;de virüsün ilk görüldüğü tarih diğer ülkelerden geç olarak 12 Mart 2020&rsquo;dir. <em>
+<a href="https://data.europa.eu/euodp/en/data/dataset/covid-19-coronavirus-data" target="_blank" rel="noopener">Kaynak EU Open Data Portal</a>{target=&rdquo;_blank&rdquo;}</em> . Bu bilgi T.C. Sağlık Bakanlığı&rsquo;nın sitesinde 10 Mart olarak görülmektedir ancak ben diğer verilerle tutarlı olması açısında EU Open Data verisini kullandım.  <em>Kaynak 
+<a href="https://covid19bilgi.saglik.gov.tr/tr/gunluk-vaka.html" target="_blank" rel="noopener">T.C. Sağlık Bakanlığı</a>{target=&rdquo;_blank&rdquo;}</em></p>
+<p>Şimdi isterseniz Türkiye&rsquo;nin haftalara göre vaka ve ölüm sayılarına bakalım. Çizgilerin üzerine geldiğinizde grafik size hangi haftada olduğunuzu ve vaka/ölüm sayısının ne olduğunu gösterecektir.</p>
+<pre><code class="language-{r,">
+
+p1 &lt;- corona %&gt;%
+  filter(Ülke == &quot;Türkiye&quot;) %&gt;%
+  ggplot(aes(x = Gün, y = Vaka, group = Hafta)) + 
+  geom_line() +
+scale_x_discrete(limits=1:7, labels = c(&quot;Pts&quot;, &quot;Salı&quot;, &quot;Çarş&quot;, &quot;Perş&quot;,&quot;Cuma&quot;, &quot;Cts&quot;, &quot;Pazar&quot;))
+
+
+
+ggplotly(p1)
+
+
+</code></pre>
+<pre><code class="language-{r,">
+
+p2 &lt;- corona %&gt;%
+  filter(Ülke == &quot;Türkiye&quot;) %&gt;%
+  ggplot(aes(x = Gün, y = Ölüm, group = Hafta)) + 
+  geom_line(color=&quot;red&quot;) +
+scale_x_discrete(limits=1:7, labels = c(&quot;Pts&quot;, &quot;Salı&quot;, &quot;Çarş&quot;, &quot;Perş&quot;,&quot;Cuma&quot;, &quot;Cts&quot;, &quot;Pazar&quot;))
+
+
+
+ggplotly(p2)
+
+
+</code></pre>
+<p>Bu grafikler dinamik olmayan grafiklerdir. Grafikleri manipüle edebilmek için Hafta sayısını interaktif olarak kullanabileceğimiz bir formata dönüştürelim. Bu grafikle beraber alt tarafta Hafta numaralarını kontrol edebileceğimiz bir çubuk olacak.  Böylecee haftalar ilerledikçe değişimi daha rahat görebileceğiz. Bu çubuğun başında yer alan <em>oynat</em> tuşuna basarak otomatik oynatmayı da isteyebiliriz. Bu tür interaktif bir grafiği kullanırken tek yapmamız gereken yukarıda <em>group</em> argümanı yerine <em>frame</em> argümanını kullanmak olacak. <strong>12. haftaya kadar hem vaka hem de ölüm olmadığına dikkat ediniz.</strong></p>
+<pre><code class="language-{r,">
+
+p3 &lt;- corona %&gt;%
+  filter(Ülke == &quot;Türkiye&quot;) %&gt;%
+  ggplot(aes(x = Gün, y = Vaka, frame = Hafta)) + 
+  geom_line() +
+scale_x_discrete(limits=1:7, labels = c(&quot;Pts&quot;, &quot;Salı&quot;, &quot;Çarş&quot;, &quot;Perş&quot;,&quot;Cuma&quot;, &quot;Cts&quot;, &quot;Pazar&quot;))
+
+
+
+ggplotly(p3)
+
+
+</code></pre>
+<pre><code class="language-{r,">
+
+p4 &lt;- corona %&gt;%
+  filter(Ülke == &quot;Türkiye&quot;) %&gt;%
+  ggplot(aes(x = Gün, y = Ölüm, frame = Hafta)) + 
+  geom_line(color=&quot;red&quot;) +
+scale_x_discrete(limits=1:7, labels = c(&quot;Pts&quot;, &quot;Salı&quot;, &quot;Çarş&quot;, &quot;Perş&quot;,&quot;Cuma&quot;, &quot;Cts&quot;, &quot;Pazar&quot;))
+
+
+
+ggplotly(p4)
+
+
+</code></pre>
+<p>Yukarıdaki tablolar tabi ki daha kullanışlı görünüyor. Ancak çoğu kişi ilk versiyonu da seçebilir. Ama biz illa bir seçim yapmak zorunda değiliz. Gelin şimdi Şekil 1 ve 3 ile Şekil 2 ve 4'ü birleştirelim. Böylece interaktif çubuk ilerledikçe diğer haftaların izleri de arka planda olacaktır.</p>
+<pre><code class="language-{r,">
+
+p5 &lt;- corona %&gt;%
+  filter(Ülke == &quot;Türkiye&quot;) %&gt;%
+  ggplot(aes(x = Gün, y = Vaka)) +
+  geom_line(aes(group = Hafta), alpha = 0.2) +
+  geom_line(aes(frame = Hafta), color = &quot;steelblue&quot;, size = 2) +
+scale_x_discrete(limits=1:7, labels = c(&quot;Pts&quot;, &quot;Salı&quot;, &quot;Çarş&quot;, &quot;Perş&quot;,&quot;Cuma&quot;, &quot;Cts&quot;, &quot;Pazar&quot;))
+
+
+
+ggplotly(p5)
+
+
+</code></pre>
+<pre><code class="language-{r,">
+
+p6 &lt;- corona %&gt;%
+  filter(Ülke == &quot;Türkiye&quot;) %&gt;%
+  ggplot(aes(x = Gün, y = Ölüm)) +
+  geom_line(aes(group = Hafta), alpha = 0.2) +
+  geom_line(aes(frame = Hafta), color = &quot;red&quot;, size = 2) +
+scale_x_discrete(limits=1:7, labels = c(&quot;Pts&quot;, &quot;Salı&quot;, &quot;Çarş&quot;, &quot;Perş&quot;,&quot;Cuma&quot;, &quot;Cts&quot;, &quot;Pazar&quot;))
+
+
+
+ggplotly(p6)
+
+
+</code></pre>
+<p>Gelelim ülkeleri karşılaştırmaya. Son grafik türünden yararlanarak verimizde bulunan 7 ülkeyi hem vaka hem ölüm sayısı cinsinden karşılaştıralım. Burada kullandığımız <em>animation_opts(frame = 1000)</em> argümanı, otomatik veri geçişindeki hızı milisaniye cinsinden ayarlamamızı sağlıyor.</p>
+<pre><code class="language-{r,">
+
+ p7 &lt;- corona %&gt;%
+  filter(Ülke %in% c(&quot;Türkiye&quot;, &quot;Amerika&quot;, &quot;İspanya&quot;, &quot;İtalya&quot;, &quot;Almanya&quot;, &quot;İngiltere&quot;, &quot;Fransa&quot;)) %&gt;%
+  ggplot(aes(x = Gün, y = Vaka)) +
+  geom_line(aes(group = Hafta), alpha = 0.2) +
+  geom_line(aes(frame = Hafta), color = &quot;steelblue&quot;, size = 1) +
+  facet_grid(. ~ Ülke)  + 
+  scale_x_discrete(limits=1:7, labels = c(&quot;P&quot;, &quot;S&quot;, &quot;Ç&quot;, &quot;P&quot;,&quot;C&quot;, &quot;C&quot;, &quot;P&quot;)) +
+  theme(
+  axis.title.x = element_blank(),
+  axis.title.y = element_blank())
+ 
+ 
+ 
+ ggplotly(p7) %&gt;%
+  animation_opts(frame = 1000)
+
+
+</code></pre>
+<pre><code class="language-{r,">
+
+ p8 &lt;- corona %&gt;%
+  filter(Ülke %in% c(&quot;Türkiye&quot;, &quot;Amerika&quot;, &quot;İspanya&quot;, &quot;İtalya&quot;, &quot;Almanya&quot;, &quot;İngiltere&quot;, &quot;Fransa&quot;)) %&gt;%
+  ggplot(aes(x = Gün, y = Ölüm)) +
+  geom_line(aes(group = Hafta), alpha = 0.2) +
+  geom_line(aes(frame = Hafta), color = &quot;red&quot;, size = 1) +
+  facet_grid(. ~ Ülke)  +
+  scale_x_discrete(limits=1:7, labels = c(&quot;P&quot;, &quot;S&quot;, &quot;Ç&quot;, &quot;P&quot;,&quot;C&quot;, &quot;C&quot;, &quot;P&quot;)) +
+  theme(
+  axis.title.x = element_blank(),
+  axis.title.y = element_blank())
+ 
+ 
+ ggplotly(p8)  %&gt;%
+  animation_opts(frame = 1000)
+
+
+</code></pre>
+<p>Grafiklere bakılacak olursa özellikle haftalara göre vaka sayıları Amerika hariç benzer örüntüler içerirken, ölüm sayısında Türkiye diğer ülkelere göre daha iyi durumdadır. Amerika ise haftalık ölüm sayılarında diğer tüm ülkelerden ileridedir.</p>
+<p>Son olarak da Vaka-Ölüm sayısını düzgünleştirerek verelim. Böylece Vaka sayısı arttıkça ölüm sayıları nasıl seyrediyor onu net bir şekillde görebiliriz. Şekil 9&rsquo;da Amerika uç değer olduğundan diğer ülkelerin durumları pek net görülememektedir. Ancak şekil 10&rsquo;da aynı  grafik Amerika hariç tekrar çizilmiştir. Burada dikkat edileceği gibi Fransa ve İngiltere&rsquo;nin düşüşe geçtiği görülebilir. Türkiye&rsquo;de ise şimdilik vaka sayısı arttıkça ölüm sayısının arttığını görmekteyiz.</p>
+<pre><code class="language-{r,">
+
+p9 &lt;- ggplot(corona, aes(x = Vaka, y = Ölüm, color = Ülke)) + 
+  geom_point(alpha = 0.5) + 
+  geom_smooth()
+p9
+
+
+</code></pre>
+<pre><code class="language-{r,">
+
+corona2 &lt;- corona %&gt;%
+  filter(Ülke %in% c(&quot;Türkiye&quot;, &quot;İspanya&quot;, &quot;İtalya&quot;, &quot;Almanya&quot;, &quot;İngiltere&quot;, &quot;Fransa&quot;))
+  
+  
+  p10 &lt;- ggplot(corona2, aes(x = Vaka, y = Ölüm, color = Ülke)) + 
+  geom_point(alpha = 0.5) + 
+  geom_smooth()
+
+  p10
+  
+
+</code></pre>
 
     </div>
 
@@ -937,7 +910,7 @@ A Markdown aside is useful for displaying notices, hints, or definitions to your
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=/post/writing-technical-content/&amp;text=Writing%20technical%20content%20in%20Academic" target="_blank" rel="noopener" class="share-btn-twitter">
+        <a href="https://twitter.com/intent/tweet?url=/post/r/&amp;text=R" target="_blank" rel="noopener" class="share-btn-twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -950,7 +923,7 @@ A Markdown aside is useful for displaying notices, hints, or definitions to your
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=/post/writing-technical-content/&amp;t=Writing%20technical%20content%20in%20Academic" target="_blank" rel="noopener" class="share-btn-facebook">
+        <a href="https://www.facebook.com/sharer.php?u=/post/r/&amp;t=R" target="_blank" rel="noopener" class="share-btn-facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -963,7 +936,7 @@ A Markdown aside is useful for displaying notices, hints, or definitions to your
       
       
       <li>
-        <a href="mailto:?subject=Writing%20technical%20content%20in%20Academic&amp;body=/post/writing-technical-content/" target="_blank" rel="noopener" class="share-btn-email">
+        <a href="mailto:?subject=R&amp;body=/post/r/" target="_blank" rel="noopener" class="share-btn-email">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -976,7 +949,7 @@ A Markdown aside is useful for displaying notices, hints, or definitions to your
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=/post/writing-technical-content/&amp;title=Writing%20technical%20content%20in%20Academic" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=/post/r/&amp;title=R" target="_blank" rel="noopener" class="share-btn-linkedin">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -989,7 +962,7 @@ A Markdown aside is useful for displaying notices, hints, or definitions to your
       
       
       <li>
-        <a href="https://web.whatsapp.com/send?text=Writing%20technical%20content%20in%20Academic%20/post/writing-technical-content/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+        <a href="https://web.whatsapp.com/send?text=R%20/post/r/" target="_blank" rel="noopener" class="share-btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -1161,8 +1134,6 @@ A Markdown aside is useful for displaying notices, hints, or definitions to your
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
 
-      
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.4.4/mermaid.min.js" integrity="sha256-JEqEejGt4tR35L0a1zodzsV0/PJ6GIf7J4yDtywdrH8=" crossorigin="anonymous" title="mermaid"></script>
       
 
       
