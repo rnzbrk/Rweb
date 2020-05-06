@@ -1,20 +1,19 @@
 ---
 title: 'R ile İnteraktif Grafik Örnekleri: Covid-19 Verisi'
-author: ""
-date: '2020-04-20'
-slug: interaktif-grafik-örnekleri-koronavirüs-verisi
-categories:
-  - Veri Görselleştirme
+author: admin
+date: '2020-05-06'
+slug: r-ile-nteraktif-grafik-örnekleri-covid-19-verisi
+categories: []
 tags:
-  - veri görselleştirme
-  - ggplot
-  - koronavirüs
   - covid19
+  - koronavirüs
   - coronavirus
+  - verigörselleştirne
+  - ggplot
 subtitle: ''
 summary: ''
-authors: [admin]
-lastmod: '2020-04-20T13:42:26+03:00'
+authors: []
+lastmod: '2020-05-06T09:49:12+03:00'
 featured: no
 image:
   caption: ''
@@ -22,6 +21,7 @@ image:
   preview_only: no
 projects: []
 ---
+
 Bu yazıda interaktif grafikler yardımıyla veri görselleştirmeye bir örnek vereceğim. Buradaki amaç yıllara, aylara ya da haftalara göre değişen özelliklerin interaktif grafikler yardımıyla oluşturulması ve farklı değişkenlere göre karşılaştırılması olacaktır. 
 
 Ben genelde bu tür grafikleri PISA, TIMMS gibi eğitime dayalı verilerde sıklıkla kullanırım. Bir ya da birçok ülkenin verilerinin yıllara göre değişimlerini karşılaştırlmalı grafiklere dökerim. Bu bakımdan elinizde bu tür veriler var ise kullanışlı bir şekilde grafiğe nasıl dökebilirsiniz bununla ilgili birkaç örnek göstereceğim.
