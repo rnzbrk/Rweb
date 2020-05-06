@@ -1,5 +1,5 @@
 ---
-title: 'İnteraktif Grafik Örnekleri: Koronavirüs Verisi'
+title: 'R ile İnteraktif Grafik Örnekleri: Covid-19 Verisi'
 author: ""
 date: '2020-04-20'
 slug: interaktif-grafik-örnekleri-koronavirüs-verisi
@@ -9,6 +9,7 @@ tags:
   - veri görselleştirme
   - ggplot
   - koronavirüs
+  - covid19
   - coronavirus
 subtitle: ''
 summary: ''
