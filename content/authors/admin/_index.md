@@ -1,8 +1,7 @@
 ---
 authors:
 - admin
-bio: Başlıca ilgi alanlarım istatistiksel programlama, eğitim istatistiği, madde tepki kuramı ve uygulamaları
-  matter.
+bio:
 education:
   courses:
   - course: Eğitimde Ölçme ve Değerlendirme, Doktora
