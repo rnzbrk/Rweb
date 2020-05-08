@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pisa2015 | Eren Halil Özberk</title>
+    <link>/tags/pisa2015/</link>
+      <atom:link href="/tags/pisa2015/index.xml" rel="self" type="application/rss+xml" />
+    <description>pisa2015</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>tr-Tr</language><copyright>Eren Halil Özberk-2020</copyright><lastBuildDate>Fri, 08 May 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>pisa2015</title>
+      <link>/tags/pisa2015/</link>
+    </image>
+    
+    <item>
+      <title>Python ile PISA Matematik Puanlarının Değişimi Grafiği</title>
+      <link>/post/python-math-score-pisa/</link>
+      <pubDate>Fri, 08 May 2020 00:00:00 +0000</pubDate>
+      <guid>/post/python-math-score-pisa/</guid>
+      <description>&lt;p&gt;Merhaba,&lt;/p&gt;
+&lt;p&gt;Bu yazımda Python kullanarak PISA Matematik Puan Ortalamalarının 2015-2018 arasında cinsiyete göre nasıl bir değişim gösterdiğini grafikleyeceğiz.&lt;/p&gt;
+&lt;p&gt;Bu yazıda elde edeceğimiz grafikler ulusal veya uluslararası raporlarda sıklıkla görebileceğiniz bir türden. Ülke ülke cinsiyete göre nasıl bir değişim olmuş onları göstereceğim. Değişimlerde bir azalma olursa yanı 2015&amp;rsquo;ten 2018&amp;rsquo;e bir azalma olursa kırmızı ile, bir artma olursa mavi çizgi ile belirteceğim. Böylece sadece renklere bakarak artış ya da azalışlar hemen farkedilebilir olacaktır ki veri görselleştirmenin en önemli amaçlarından birisi de budur. Ancak bununla da kalmayacağız ve yüzde olarak ne kadar bir fark olmuş onu da belirteceğim.  Gelin &amp;ldquo;veriyi konuşturalım&amp;rdquo;.&lt;/p&gt;
+&lt;h2 id=&#34;verilerin-elde-edilmesi&#34;&gt;Verilerin Elde Edilmesi&lt;/h2&gt;
+&lt;p&gt;Verileri 
+&lt;a href=&#34;https://datacatalog.worldbank.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dünya Bankası&lt;/a&gt; sayfasından 6 mayıs 2020 tarihinde aldım. 269 ülkeden oluşan veride ben sadece 2015 ve 2018 verileri olanları aldım ve diğerlerini eledim. Veride 2003,2006, 2009, 2012 yıllarına ait PISA verileri de vardı ancak onları bu çalışmada kullanmadım. İsteyen onlarla da çalışabilir.&lt;/p&gt;
+&lt;h2 id=&#34;kullanılan-python-kütüphaneleri&#34;&gt;Kullanılan Python Kütüphaneleri&lt;/h2&gt;
+&lt;p&gt;Python ile veri görselleştirme yapılırken ben &lt;strong&gt;matplotlib&lt;/strong&gt;, ve &lt;strong&gt;seaborn&lt;/strong&gt; kütüphanelerini kullandım. İstenilirse &lt;strong&gt;plotly&lt;/strong&gt; ile de grafikler çizilebilir. Veri analizinde ise &lt;strong&gt;pandas&lt;/strong&gt; ve &lt;strong&gt;numpy&lt;/strong&gt; kullandım.&lt;/p&gt;
+&lt;h2 id=&#34;python-kodları&#34;&gt;Python Kodları&lt;/h2&gt;
+&lt;p&gt;İlk olarak kütüphaneleri çağırarak işe başlıyorum. &lt;strong&gt;import&lt;/strong&gt; komutu ile kullandığım paketleri &lt;strong&gt;as&lt;/strong&gt; kullanarak da kısaltmalarını belirleyerek işleme başlıyorum.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set(style=&amp;quot;whitegrid&amp;quot;)  # grafikler için beyaz zemin oluşturma.
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Kullanacağım kütüphaneleri yükledikten sonra verileri &lt;strong&gt;pandas&lt;/strong&gt; kullanarak Github sitesinden çekiyorum. Bunun için&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bach&#34;&gt;pandas.read_csv()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;fonksiyounu kullandım. Hem kızlar hem erkekler için iki ayrı veri setini &lt;em&gt;kız&lt;/em&gt; ve &lt;em&gt;erkek&lt;/em&gt; nesnesine kaydedip 2018-2015 yılı arasındaki artışı görmek adına veriye &lt;em&gt;fark&lt;/em&gt; değişkenini de ekleyeceğim.  Hem kız hem de erkek verilerini aşağıda görebilirsiniz.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;kız = pd.read_csv(&#39;https://raw.githubusercontent.com/rnzbrk/R-files-/master/pisafemale.csv&#39;, sep=&amp;quot;;&amp;quot;)
+kız = kız.set_index(&amp;quot;Country&amp;quot;).sort_values(&amp;quot;2018&amp;quot;)
+kız[&amp;quot;fark&amp;quot;] = kız[&amp;quot;2018&amp;quot;] / kız[&amp;quot;2015&amp;quot;] - 1
+kız
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div&gt;
+&lt;style scoped&gt;
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+&lt;pre&gt;&lt;code&gt;.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;/style&gt;&lt;/p&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;2015&lt;/th&gt;
+      &lt;th&gt;2018&lt;/th&gt;
+      &lt;th&gt;fark&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Country&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Kosovo&lt;/th&gt;
+      &lt;td&gt;356.729450&lt;/td&gt;
+      &lt;td&gt;363.776533&lt;/td&gt;
+      &lt;td&gt;0.019755&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Argentina&lt;/th&gt;
+      &lt;td&gt;400.443116&lt;/td&gt;
+      &lt;td&gt;371.848368&lt;/td&gt;
+      &lt;td&gt;-0.071408&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Brazil&lt;/th&gt;
+      &lt;td&gt;369.549307&lt;/td&gt;
+      &lt;td&gt;379.269456&lt;/td&gt;
+      &lt;td&gt;0.026303&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Colombia&lt;/th&gt;
+      &lt;td&gt;384.488336&lt;/td&gt;
+      &lt;td&gt;381.365275&lt;/td&gt;
+      &lt;td&gt;-0.008123&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Indonesia&lt;/th&gt;
+      &lt;td&gt;387.444975&lt;/td&gt;
+      &lt;td&gt;383.446725&lt;/td&gt;
+      &lt;td&gt;-0.010320&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;...&lt;/th&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Netherlands&lt;/th&gt;
+      &lt;td&gt;511.015941&lt;/td&gt;
+      &lt;td&gt;518.547572&lt;/td&gt;
+      &lt;td&gt;0.014739&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Estonia&lt;/th&gt;
+      &lt;td&gt;516.872753&lt;/td&gt;
+      &lt;td&gt;519.187027&lt;/td&gt;
+      &lt;td&gt;0.004477&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Japan&lt;/th&gt;
+      &lt;td&gt;525.495995&lt;/td&gt;
+      &lt;td&gt;522.034617&lt;/td&gt;
+      &lt;td&gt;-0.006587&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Singapore&lt;/th&gt;
+      &lt;td&gt;564.254534&lt;/td&gt;
+      &lt;td&gt;566.893619&lt;/td&gt;
+      &lt;td&gt;0.004677&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;China&lt;/th&gt;
+      &lt;td&gt;528.194648&lt;/td&gt;
+      &lt;td&gt;585.753111&lt;/td&gt;
+      &lt;td&gt;0.108972&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;63 rows × 3 columns&lt;/p&gt;
+&lt;/div&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;erkek = pd.read_csv(&#39;https://raw.githubusercontent.com/rnzbrk/R-files-/master/pisamale.csv&#39;, sep=&amp;quot;;&amp;quot;)
+erkek = erkek.set_index(&amp;quot;Country&amp;quot;).sort_values(&amp;quot;2018&amp;quot;)
+erkek[&amp;quot;fark&amp;quot;] = erkek[&amp;quot;2018&amp;quot;] / erkek[&amp;quot;2015&amp;quot;] - 1
+erkek
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div&gt;
+&lt;style scoped&gt;
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+&lt;pre&gt;&lt;code&gt;.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;/style&gt;&lt;/p&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;2015&lt;/th&gt;
+      &lt;th&gt;2018&lt;/th&gt;
+      &lt;th&gt;fark&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Country&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Kosovo&lt;/th&gt;
+      &lt;td&gt;366.189422&lt;/td&gt;
+      &lt;td&gt;367.993933&lt;/td&gt;
+      &lt;td&gt;0.004928&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Indonesia&lt;/th&gt;
+      &lt;td&gt;384.779279&lt;/td&gt;
+      &lt;td&gt;373.734527&lt;/td&gt;
+      &lt;td&gt;-0.028704&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Argentina&lt;/th&gt;
+      &lt;td&gt;418.388361&lt;/td&gt;
+      &lt;td&gt;387.279360&lt;/td&gt;
+      &lt;td&gt;-0.074354&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Brazil&lt;/th&gt;
+      &lt;td&gt;385.040591&lt;/td&gt;
+      &lt;td&gt;387.871670&lt;/td&gt;
+      &lt;td&gt;0.007353&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;North Macedonia&lt;/th&gt;
+      &lt;td&gt;368.237357&lt;/td&gt;
+      &lt;td&gt;390.933269&lt;/td&gt;
+      &lt;td&gt;0.061634&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;...&lt;/th&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Netherlands&lt;/th&gt;
+      &lt;td&gt;513.497847&lt;/td&gt;
+      &lt;td&gt;519.910895&lt;/td&gt;
+      &lt;td&gt;0.012489&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Estonia&lt;/th&gt;
+      &lt;td&gt;522.080414&lt;/td&gt;
+      &lt;td&gt;527.638015&lt;/td&gt;
+      &lt;td&gt;0.010645&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Japan&lt;/th&gt;
+      &lt;td&gt;539.267257&lt;/td&gt;
+      &lt;td&gt;532.156110&lt;/td&gt;
+      &lt;td&gt;-0.013187&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Singapore&lt;/th&gt;
+      &lt;td&gt;564.129004&lt;/td&gt;
+      &lt;td&gt;571.041480&lt;/td&gt;
+      &lt;td&gt;0.012253&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;China&lt;/th&gt;
+      &lt;td&gt;534.010671&lt;/td&gt;
+      &lt;td&gt;596.553872&lt;/td&gt;
+      &lt;td&gt;0.117120&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;63 rows × 3 columns&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;İki yeni veri yarattım. &lt;em&gt;Fark1&lt;/em&gt; ve &lt;em&gt;Fark2&lt;/em&gt; verisi kızlarda ve erkeklerdeki Matematik puanlarının toplam değişim yüzdesini göstermekte. Bu iki ifadeyi text olarak her iki grafiğe ekleyip 2015-2018 arasında Matematik puanları genelinde nasıl bir durum oluşmuş onu görebiliriz.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;Fark1 = str(round(kız[&#39;fark&#39;].mean()*100, 2))
+Fark2 = str(round(erkek[&#39;fark&#39;].mean()*100, 2))
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Grafiği çizerken hangi fonksiyonları kullandığımı kısaca burada anlatacağım&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bach&#34;&gt;plt.figure # Grafiğin boyutunu belirler. 
+y_range  # Y sütununda ülkeler olacak. Kaç ülke olacağını belirleyip ona göre bir ranj belirler
+colors # np.where() komutu ile koşullu renklendirme yaptım. Eğer 2018 verisi 2015 verisinden büyük ise #0b6af4 değilse #E1152A kullanmasını istedim. 
+plt.hlines # yatay çizği için kullanılan grafik fonksiyonu
+plt.scatter # saçılım grafiği fonksiyonu. 2018 ve 2015&#39;e ait verilerin saçılımını gösterir. 
+plt.legend # legend yani tanımlama kutularının çizimi
+plt.yticks # Y sütunundaki değişkenleri yerleştirme
+plt.title #grafiğin başlığı
+plt.xlim # x başlanğıç ve bitiş noktaları
+plt.text # Fark1 ile hesapladığımız Matematik puanlarının toplam değişim yüzdesini belirtmek için kullanılır 
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;plt.figure(figsize=(15,25))
+y_range = np.arange(1, len(kız.index) + 1)
+colors = np.where(kız[&#39;2018&#39;] &amp;gt; kız[&#39;2015&#39;], &#39;#0b6af4&#39;, &#39;#E1152A&#39;)
+plt.hlines(y=y_range, xmin=kız[&#39;2015&#39;], xmax=kız[&#39;2018&#39;],
+           color=colors, lw=10)
+plt.scatter(kız[&#39;2015&#39;], y_range, color=&#39;#E1152A&#39;, s=200, label=&#39;2015&#39;, zorder=3)
+plt.scatter(kız[&#39;2018&#39;], y_range, color=&#39;#0b6af4&#39;, s=200 , label=&#39;2018&#39;, zorder=3)
+for (_, row), y in zip(kız.iterrows(), y_range):
+    plt.annotate(f&amp;quot;{row[&#39;fark&#39;]:+.0%}&amp;quot;, (max(row[&amp;quot;2015&amp;quot;], row[&amp;quot;2018&amp;quot;]) + 4, y - 0.25))
+plt.legend(ncol=2, bbox_to_anchor=(1., 1.01), loc=&amp;quot;lower right&amp;quot;, frameon=False)
+plt.yticks(y_range, kız.index)
+plt.title(&amp;quot;PISA Matematik Puanlarının Ülkelere Göre Değişimi\n2015-2018 Kız Öğrenciler&amp;quot;, loc=&#39;left&#39;)
+plt.xlim(350, 615)
+plt.gcf().subplots_adjust(left=0.35)
+plt.tight_layout()
+plt.text(501,0.2,&amp;quot;Genel Ortalama Değişim &amp;quot; + Fark1+&amp;quot;%&amp;quot;,bbox=dict(facecolor=&#39;#ccc9c9&#39;, alpha=0.5))
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;output_4_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;plt.figure(figsize=(15,25))
+y_range = np.arange(1, len(erkek.index) + 1)
+colors = np.where(erkek[&#39;2018&#39;] &amp;gt; erkek[&#39;2015&#39;], &#39;#0b6af4&#39;, &#39;#E1152A&#39;)
+plt.hlines(y=y_range, xmin=erkek[&#39;2015&#39;], xmax=erkek[&#39;2018&#39;],
+           color=colors, lw=10)
+plt.scatter(erkek[&#39;2015&#39;], y_range, color=&#39;#E1152A&#39;, s=200, label=&#39;2015&#39;, zorder=3)
+plt.scatter(erkek[&#39;2018&#39;], y_range, color=&#39;#0b6af4&#39;, s=200 , label=&#39;2018&#39;, zorder=3)
+for (_, row), y in zip(erkek.iterrows(), y_range):
+    plt.annotate(f&amp;quot;{row[&#39;fark&#39;]:+.0%}&amp;quot;, (max(row[&amp;quot;2015&amp;quot;], row[&amp;quot;2018&amp;quot;]) + 4, y - 0.25))
+plt.legend(ncol=2, bbox_to_anchor=(1., 1.01), loc=&amp;quot;lower right&amp;quot;, frameon=False)
+plt.yticks(y_range, erkek.index)
+plt.title(&amp;quot;PISA Matematik Puanlarının Ülkelere Göre Değişimi\n2015-2018 Erkek Öğrenciler&amp;quot;, loc=&#39;left&#39;)
+plt.xlim(350, 615)
+plt.gcf().subplots_adjust(left=0.35)
+plt.tight_layout()
+plt.text(501,0.2,&amp;quot;Genel Ortalama Değişim &amp;quot; + Fark2+&amp;quot;%&amp;quot;,bbox=dict(facecolor=&#39;#ccc9c9&#39;, alpha=0.5))
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;output_5_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;grafiklerin-ve-verinin-yorumlanması&#34;&gt;Grafiklerin ve Verinin Yorumlanması&lt;/h2&gt;
+&lt;p&gt;İlk gözüme çarpan kızların  Matematik Puan ortalamalarının erkeklere göre daha fazla arttığıdır (Kız= %0,83; Erkek=%0,33). Türkiye verisine bakacak olursak kızlar ve erkeklerin %8 oranında arttığını görüyoruz. Birçok ülkede örneğin Kanada&amp;rsquo;da; kızların puanları değişmezken erkeklerin puanlarında bir gerilemenin olduğunu görebiliriz. Yorumlamalar size kalmış.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
