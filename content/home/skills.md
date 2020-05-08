@@ -33,5 +33,10 @@ subtitle = ""
   name = "Veri Görselleştirme"
   description = "shiny + plotly + ggplot + 3D grafikleme"
   
+[[feature]]
+  icon = "python"
+  icon_pack = "fab"
+  name = "Python"
+  description = "pandas + Matplotlib + NumPy + seaborn + plotly"
 
 +++
