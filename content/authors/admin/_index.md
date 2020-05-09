@@ -48,6 +48,7 @@ user_groups:
 - Visitors
 ---
 Merhaba!
+
 Trakya Üniversitesi, Eğitim Bilimleri Bölümü, Eğitimde Ölçme ve Değerlendirme Ana Bilim Dalı’nda doktor öğretim üyesi olarak görevime devam etmekteyim. TÜBITAK 2214/A Doktora sırası araştırma bursundan yararlanarak 2015 - 2016 arasında University of North Carolina Greensboro-UNCG’da misafir araştırmacı olarak bulundum. Başlıca ilgi alanlarım çok boyutlu madde tepki kuramı, tek ve çok boyutlu bireyselleştirilmiş bilgisayarlı testler, hiyerarşik doğrusal modeller, istatistiksel programlamadır.
 
 Bu web sayfasını oluştururken aklımda yazdığım kodların düzenli bir yerde bulunması isteği vardı. Daha sonra bu istek, R programlama, veri görselleştirme ve psikometriye ilişkin güncel bilgilerin de toplanacağı bir platform olabileceği fikrine dönüştü. Burada elimden geldiğince anladığım, bildiğim, öğrendiğim konulara ait Türkçe içerikler oluşturacağım. Keyfili öğrenmeler :) 

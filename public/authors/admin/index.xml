@@ -316,7 +316,7 @@ plt.show()
       <link>/post/nonparametrik/</link>
       <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
       <guid>/post/nonparametrik/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Bu belgede kullanılan örnekler Şener Büyüköztürk&#39;ün Sosyal Bilimler için Veri Analizi El Kitabı isimli kaynağından yazarın izni ile alınmıştır.&lt;/strong&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;strong&gt;Bu belgede kullanılan örnekler Şener Büyüköztürk&amp;rsquo;ün Sosyal Bilimler için Veri Analizi El Kitabı isimli kaynağından yazarın izni ile alınmıştır.&lt;/strong&gt;&lt;/p&gt;
 &lt;h1 id=&#34;1-nonparametrik-istatistikler&#34;&gt;1. Nonparametrik İstatistikler&lt;/h1&gt;
 &lt;p&gt;Hipotez testleri oluşturulurken, herhangi bir evrenden çekilen örneklem dağılımı yardımıyla evren dağılımı hakkında birtakım bilgilere sahip olunabilir. Evren dağılımı bilindiği durumlarda parametrik istatistikler (t-testi, ANOVA, ANCOVA&amp;hellip;) kullanılır. Ancak evren dağılımı bilinmediği ya da herhangi bir varsayımda bulunulmadığı durumlarda nonparametrik testler kullanılır.&lt;/p&gt;
 &lt;h2 id=&#34;11-varsayımlar&#34;&gt;1.1. Varsayımlar&lt;/h2&gt;
