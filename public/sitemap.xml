@@ -4,12 +4,52 @@
   
   <url>
     <loc>/authors/admin/</loc>
-    <lastmod>2020-05-08T00:00:00+00:00</lastmod>
+    <lastmod>2020-05-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/authors/</loc>
-    <lastmod>2020-05-08T00:00:00+00:00</lastmod>
+    <lastmod>2020-05-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/error/</loc>
+    <lastmod>2020-05-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/fonksiyon/</loc>
+    <lastmod>2020-05-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/hata-mesaj%C4%B1/</loc>
+    <lastmod>2020-05-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/r-fonksiyonlar-nda-hata-mesajlar-n-n-ozelle-tirilmesi/</loc>
+    <lastmod>2020-05-23T00:25:06+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/fonksiyon-hata/</loc>
+    <lastmod>2020-05-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/rstudio/</loc>
+    <lastmod>2020-05-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-05-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-05-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -63,22 +103,12 @@
   </url>
   
   <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-05-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/categories/veri-gorsellestirme/</loc>
     <lastmod>2020-05-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/veri-gorsellestirme/</loc>
-    <lastmod>2020-05-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
     <lastmod>2020-05-08T00:00:00+00:00</lastmod>
   </url>
   
@@ -159,11 +189,6 @@
   
   <url>
     <loc>/talk/rkitap/</loc>
-    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/rstudio/</loc>
     <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -450,6 +475,10 @@
   <url>
     <loc>/authors/yesim-ozer/</loc>
     <lastmod>2011-09-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/fonksiyon/donguler/</loc>
   </url>
   
 </urlset>
