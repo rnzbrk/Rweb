@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>rstudio | Eren Halil Özberk</title>
-    <link>/tags/rstudio/</link>
-      <atom:link href="/tags/rstudio/index.xml" rel="self" type="application/rss+xml" />
-    <description>rstudio</description>
+    <title>Fonksiyon ve Döngüler | Eren Halil Özberk</title>
+    <link>/categories/fonksiyon-ve-donguler/</link>
+      <atom:link href="/categories/fonksiyon-ve-donguler/index.xml" rel="self" type="application/rss+xml" />
+    <description>Fonksiyon ve Döngüler</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>tr-Tr</language><copyright>Eren Halil Özberk-2020</copyright><lastBuildDate>Sat, 23 May 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
-      <title>rstudio</title>
-      <link>/tags/rstudio/</link>
+      <title>Fonksiyon ve Döngüler</title>
+      <link>/categories/fonksiyon-ve-donguler/</link>
     </image>
     
     <item>
@@ -78,38 +78,6 @@ carpim
 &lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Hesaplanamadı&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Dikkat ederseniz artık sorunun nereden kaynaklı olduğunu görebiliyoruz. Ben hata kodlarının Türkçe olmasını önemsiyorum. Özellikle de kullanıcı tanımlı fonksiyonlarda olmasını önemsiyorum. Bu sayede kullandığınız kod diğer kişiler tarafından da kolaylıkla anlaşılabilecektir.&lt;/p&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>R ile Veri Analizi ve Psikometri Uygulamaları</title>
-      <link>/talk/rkitap/</link>
-      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>/talk/rkitap/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>TÜBİTAK 2237- RStudio İle Temel İstatistiksel Yöntemler Eğitimi</title>
-      <link>/talk/rstudio/</link>
-      <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>/talk/rstudio/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Serhat Kalkınma Ajansı - Uygulamalı R Yazılımı Veri Analizi</title>
-      <link>/talk/serka/</link>
-      <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
-      <guid>/talk/serka/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>EPOD2016 Kongresi - R Yazılımına Giriş Çalıştayı</title>
-      <link>/talk/epod/</link>
-      <pubDate>Tue, 30 Aug 2016 00:00:00 +0000</pubDate>
-      <guid>/talk/epod/</guid>
-      <description></description>
     </item>
     
   </channel>

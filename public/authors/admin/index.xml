@@ -5,105 +5,12 @@
     <link>/authors/admin/</link>
       <atom:link href="/authors/admin/index.xml" rel="self" type="application/rss+xml" />
     <description>Eren Halil Özberk</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>tr-Tr</language><copyright>Eren Halil Özberk-2020</copyright><lastBuildDate>Sat, 23 May 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>tr-Tr</language><copyright>Eren Halil Özberk-2020</copyright><lastBuildDate>Fri, 08 May 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Eren Halil Özberk</title>
       <link>/authors/admin/</link>
     </image>
-    
-    <item>
-      <title>R Fonksiyonlarında Hata Mesajlarının Özelleştirilmesi</title>
-      <link>/post/fonksiyon-hata/</link>
-      <pubDate>Sat, 23 May 2020 00:00:00 +0000</pubDate>
-      <guid>/post/fonksiyon-hata/</guid>
-      <description>&lt;h1 id=&#34;r-fonksiyonlarında-hata-mesajlarının-özelleştirilmesi&#34;&gt;R Fonksiyonlarında Hata Mesajlarının Özelleştirilmesi&lt;/h1&gt;
-&lt;p&gt;Merhaba,&lt;/p&gt;
-&lt;p&gt;Bu yazıda R yazılımda hata mesajlarının nasıl özelleştirileceğine değineceğim. R yazılımında hem temel (base) pakette hem de farklı paketlerdeki foksiyonlar kullanmak istemediğinizde kendi fonksiyonlarınızı yazmak isteyebilirsiniz. Bu tür fonksiyonlara &lt;strong&gt;kullanıcı tanımlı (User defined)&lt;/strong&gt; fonksiyonlar denir.&lt;/p&gt;
-&lt;p&gt;Kullanıcı tanımlı fonksiyonların nasıl oluşturulduğu 
-&lt;a href=&#34;https://www.erenozberk.com/talk/rkitap/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R ile Veri Analizi ve Psikometri Uygulamaları&lt;/a&gt; kitabımızda ayrıntılı olarak anlatıldı. İlgilenenler 6. Bölümdeki &amp;ldquo;Fonksiyonlar&amp;rdquo; kısmını inceleyebilirler.&lt;/p&gt;
-&lt;p&gt;Şimdi anlatacağım konu ise kullanıcı tanımlı fonksiyonların hata mesajları düzeyinde özelleştirilmesi. R yazılımını öğretmeye başlayınca farkettiğim bir durum var: Kişiler hata kodlarını ne kadar iyi anlarsa kod yazma becerileri daha hızlı oluyordu. Çünkü hatanın nerede ve nasıl oluştuğunu anlayıp o kısma odaklanabiliyorlardı. Bu yüzden sistem tarafından üretilen hata mesajlarını okumanın önemi büyüktür. Bana göre, hata mesajlarını çözmek, bir bakıma kullandığınız paketi hatta yazılımı çözme yolunda en büyük adımdır.&lt;/p&gt;
-&lt;p&gt;Hata kodlarını özelleştirmeye başladığınızda yazdığınız fonksiyonlar daha işlevsel olacaktır. Örneğin matematikteki çarpma işaretinin ($\Pi$) fonksiyonunu yazalım. Bu fonksiyon ile nesnemizdeki sayıların çarpımını bize verecektir.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;carpim &amp;lt;- function(x) {
-carpim &amp;lt;- 1
-for(i in x) {
-carpim &amp;lt;- carpim*i
-}
-carpim
-}
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Fonksiyonu tanımladık. Şimdi iki tane sayısal vektör tanımlayalım. Birisi &lt;strong&gt;x&lt;/strong&gt; vektörü olsun ve hiç kayıp veri olmasın. İkincisi ise &lt;strong&gt;y&lt;/strong&gt; vektörü olsun ve kayıp veri olsun.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;x &amp;lt;- c(1,4,5,6,7,8,9,21)
-
-y &amp;lt;- c(1,4,NA,6,7,8,9,21)
-
-x
-y
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;style&gt;
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline&gt;li {display: inline-block}
-.list-inline&gt;li:not(:last-child)::after {content: &#34;\00b7&#34;; padding: 0 .5ex}
-&lt;/style&gt;
-&lt;ol class=list-inline&gt;&lt;li&gt;1&lt;/li&gt;&lt;li&gt;4&lt;/li&gt;&lt;li&gt;5&lt;/li&gt;&lt;li&gt;6&lt;/li&gt;&lt;li&gt;7&lt;/li&gt;&lt;li&gt;8&lt;/li&gt;&lt;li&gt;9&lt;/li&gt;&lt;li&gt;21&lt;/li&gt;&lt;/ol&gt;
-&lt;style&gt;
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline&gt;li {display: inline-block}
-.list-inline&gt;li:not(:last-child)::after {content: &#34;\00b7&#34;; padding: 0 .5ex}
-&lt;/style&gt;
-&lt;ol class=list-inline&gt;&lt;li&gt;1&lt;/li&gt;&lt;li&gt;4&lt;/li&gt;&lt;li&gt;&amp;lt;NA&amp;gt;&lt;/li&gt;&lt;li&gt;6&lt;/li&gt;&lt;li&gt;7&lt;/li&gt;&lt;li&gt;8&lt;/li&gt;&lt;li&gt;9&lt;/li&gt;&lt;li&gt;21&lt;/li&gt;&lt;/ol&gt;
-&lt;p&gt;Her iki sayısal vektörü &lt;strong&gt;carpim&lt;/strong&gt; fonksiyonu kullanarak çalıştıralım&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;carpim(x)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;1270080&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;carpim(y)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&amp;lt;NA&amp;gt;&lt;/p&gt;
-&lt;p&gt;Dikkat ederseniz &lt;strong&gt;x&lt;/strong&gt; vektöründe istediğimiz çıktıyı aldık ama &lt;strong&gt;y&lt;/strong&gt; vektöründe istediğimiz çıktıyı alamadık ve sadece &lt;strong&gt;NA&lt;/strong&gt; değerini verdi. Ancak bu &lt;strong&gt;NA&lt;/strong&gt; değeri sorunun nerede olduğunu bize anlatmıyor.&lt;/p&gt;
-&lt;p&gt;Yazdığımız fonksiyona tekrar bakalım. Biz fonksiyonu kayıp verisi olmayan vektörler için yazmışız. Yani varsayımımız şu: Burada sadece tam veriler çalışır. Ama iyi bir fonksiyon yazmak istiyorsak olası tüm durumları da düşünmek zorundayız ve bunlara alternatifler oluşturmalıyız.&lt;/p&gt;
-&lt;p&gt;İşte tam da bu noktada; verilerimizde kayıp bir veri olsa idi hata mesajı nasıl yazılmalı idi ona dikkat etmeliyiz.&lt;/p&gt;
-&lt;p&gt;Hata mesajları ile ilgili birçok paket bulunmakta. Ben bildiklerimi aşağıda sıraladım.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Tony Fishettti 
-&lt;a href=&#34;https://github.com/tonyfischetti/assertr&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;assertr&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Hadley Wickham 
-&lt;a href=&#34;https://github.com/hadley/assertthat&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;assertthat&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Michel Lang 
-&lt;a href=&#34;https://github.com/mllg/checkmate&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;checkmate&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Stefan Bache 
-&lt;a href=&#34;https://github.com/smbache/ensurer&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ensurer&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Gaston Sanchez 
-&lt;a href=&#34;https://github.com/gastonstat/tester&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;tester&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Richard Cotton 
-&lt;a href=&#34;https://bitbucket.org/richierocks/assertive/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;assertive&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Dilerseniz bu paketleri kullanabilirsiniz. Ama sorun hala devam ediyor. Nedeni de şu: Hata mesajları &lt;strong&gt;İngilizce&lt;/strong&gt; ve ben mesajlarımı &lt;strong&gt;Türkçe&lt;/strong&gt; istiyorum. Bu yüzden iş başa düşüyor.&lt;/p&gt;
-&lt;p&gt;Fonksiyonumu güncelliyorum. Ve artık bir koşul koymam gerekiyor. Kendime şunu soruyorum &amp;ldquo;Ya verilerimde kayıp veri var ise?&amp;rdquo; Aslında bu &amp;ldquo;ya&amp;rdquo; kısmı R dilindeki &lt;strong&gt;if&lt;/strong&gt; koşuluna denk geliyor. Bu nedenle bir koşul ekliyorum fonksiyonuma. Koşulda &lt;em&gt;anyNA&lt;/em&gt; fonksiyonunu kullanıyorum. Bu fonksiyon kayıp verinin varlığını Boolean (TRUE-FALSE)mantığı ile test ediyor. &lt;em&gt;warning&lt;/em&gt; yani &lt;em&gt;uyarı&lt;/em&gt; fonksiyonu ile de istediğim mesajı yazabiliyorum. &lt;em&gt;return&lt;/em&gt; fonksiyonu ile de hesaplanamadığına dair bir bilgilendirme yapıyorum. Eğer &lt;em&gt;return&lt;/em&gt; kullanmasa idim çıktı &amp;ldquo;NA&amp;rdquo; olarak yer alacaktı.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;carpim &amp;lt;- function(x, na.rm = FALSE) {
-if(anyNA(x)){
-warning(&amp;quot;Verinizde kayıp veri (NA) bulunmaktadır. Lütfen kontrol ediniz&amp;quot;)
-    return(&amp;quot;Hesaplanamadı&amp;quot;)
-}
-carpim &amp;lt;- 1
-for(i in x) {
-carpim &amp;lt;- carpim*i
-}
-carpim
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;carpim(y)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;Warning message in carpim(y):
-&amp;quot;Verinizde kayıp veri (NA) bulunmaktadır. Lütfen kontrol ediniz&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&amp;lsquo;Hesaplanamadı&amp;rsquo;&lt;/p&gt;
-&lt;p&gt;Dikkat ederseniz artık sorunun nereden kaynaklı olduğunu görebiliyoruz. Ben hata kodlarının Türkçe olmasını önemsiyorum. Özellikle de kullanıcı tanımlı fonksiyonlarda olmasını önemsiyorum. Bu sayede kullandığınız kod diğer kişiler tarafından da kolaylıkla anlaşılabilecektir.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
     
     <item>
       <title>Python ile PISA Matematik Puanlarının Değişimi Grafiği</title>
