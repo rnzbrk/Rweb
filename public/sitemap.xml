@@ -28,7 +28,7 @@
   </url>
   
   <url>
-    <loc>/post/fonk/r-fonks-hata/</loc>
+    <loc>/post/r-fonks-hata/</loc>
     <lastmod>2020-05-23T01:06:20+03:00</lastmod>
   </url>
   
@@ -475,6 +475,10 @@
   <url>
     <loc>/authors/yesim-ozer/</loc>
     <lastmod>2011-09-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/rstudio/fonk/2020-05-23-r-fonks-hata_files/featured.jpg/</loc>
   </url>
   
 </urlset>

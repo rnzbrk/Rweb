@@ -28,10 +28,7 @@
   
     
   
-  <meta name="description" content="knitr::opts_chunk$set(echo = TRUE) Merhaba,
-Bu yazıda R yazılımda hata mesajlarının nasıl özelleştirileceğine değineceğim. R yazılımında hem temel (base) pakette hem de farklı paketlerdeki foksiyonlar kullanmak istemediğinizde kendi fonksiyonlarınızı yazmak isteyebilirsiniz. Bu tür fonksiyonlara kullanıcı tanımlı (User defined) fonksiyonlar denir.
-Kullanıcı tanımlı fonksiyonların nasıl oluşturulduğu R ile Veri Analizi ve Psikometri Uygulamaları kitabımızda ayrıntılı olarak anlatıldı. İlgilenenler 6. Bölümdeki &ldquo;Fonksiyonlar&rdquo; kısmını inceleyebilirler.
-Şimdi anlatacağım konu ise kullanıcı tanımlı fonksiyonların hata mesajları düzeyinde özelleştirilmesi.">
+  <meta name="description" content="Fonksiyonlarda hata mesajlarının yazımı![](/fonk/2020-05-23-r-fonks-hata_files/featured.jpg)">
 
   
   <link rel="alternate" hreflang="tr-Tr" href="/post/r-fonks-hata/">
@@ -267,9 +264,10 @@ Kullanıcı tanımlı fonksiyonların nasıl oluşturulduğu R ile Veri Analizi 
   
   
     
+    
   
   
-  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:card" content="summary">
   
   <meta property="twitter:site" content="@rnzbrk">
   <meta property="twitter:creator" content="@rnzbrk">
@@ -277,11 +275,8 @@ Kullanıcı tanımlı fonksiyonların nasıl oluşturulduğu R ile Veri Analizi 
   <meta property="og:site_name" content="Eren Halil Özberk">
   <meta property="og:url" content="/post/r-fonks-hata/">
   <meta property="og:title" content="R Fonksiyonlarında Hata Mesajlarının Özelleştirilmesi | Eren Halil Özberk">
-  <meta property="og:description" content="knitr::opts_chunk$set(echo = TRUE) Merhaba,
-Bu yazıda R yazılımda hata mesajlarının nasıl özelleştirileceğine değineceğim. R yazılımında hem temel (base) pakette hem de farklı paketlerdeki foksiyonlar kullanmak istemediğinizde kendi fonksiyonlarınızı yazmak isteyebilirsiniz. Bu tür fonksiyonlara kullanıcı tanımlı (User defined) fonksiyonlar denir.
-Kullanıcı tanımlı fonksiyonların nasıl oluşturulduğu R ile Veri Analizi ve Psikometri Uygulamaları kitabımızda ayrıntılı olarak anlatıldı. İlgilenenler 6. Bölümdeki &ldquo;Fonksiyonlar&rdquo; kısmını inceleyebilirler.
-Şimdi anlatacağım konu ise kullanıcı tanımlı fonksiyonların hata mesajları düzeyinde özelleştirilmesi."><meta property="og:image" content="/post/r-fonks-hata/featured.jpg">
-  <meta property="twitter:image" content="/post/r-fonks-hata/featured.jpg"><meta property="og:locale" content="tr-Tr">
+  <meta property="og:description" content="Fonksiyonlarda hata mesajlarının yazımı![](/fonk/2020-05-23-r-fonks-hata_files/featured.jpg)"><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
+  <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="tr-Tr">
   
     
       <meta property="article:published_time" content="2020-05-23T00:00:00&#43;00:00">
@@ -314,10 +309,6 @@ Kullanıcı tanımlı fonksiyonların nasıl oluşturulduğu R ile Veri Analizi 
   },
   "headline": "R Fonksiyonlarında Hata Mesajlarının Özelleştirilmesi",
   
-  "image": [
-    "/post/r-fonks-hata/featured.jpg"
-  ],
-  
   "datePublished": "2020-05-23T00:00:00Z",
   "dateModified": "2020-05-23T01:06:20+03:00",
   
@@ -334,7 +325,7 @@ Kullanıcı tanımlı fonksiyonların nasıl oluşturulduğu R ile Veri Analizi 
       "url": "/images/icon_hu7ee3a79fadf0087cc22d867350428c45_40262_192x192_fill_lanczos_center_2.png"
     }
   },
-  "description": "knitr::opts_chunk$set(echo = TRUE)\r Merhaba,\nBu yazıda R yazılımda hata mesajlarının nasıl özelleştirileceğine değineceğim. R yazılımında hem temel (base) pakette hem de farklı paketlerdeki foksiyonlar kullanmak istemediğinizde kendi fonksiyonlarınızı yazmak isteyebilirsiniz. Bu tür fonksiyonlara kullanıcı tanımlı (User defined) fonksiyonlar denir.\nKullanıcı tanımlı fonksiyonların nasıl oluşturulduğu R ile Veri Analizi ve Psikometri Uygulamaları kitabımızda ayrıntılı olarak anlatıldı. İlgilenenler 6. Bölümdeki \u0026ldquo;Fonksiyonlar\u0026rdquo; kısmını inceleyebilirler.\nŞimdi anlatacağım konu ise kullanıcı tanımlı fonksiyonların hata mesajları düzeyinde özelleştirilmesi."
+  "description": "Fonksiyonlarda hata mesajlarının yazımı![](/fonk/2020-05-23-r-fonks-hata_files/featured.jpg)"
 }
 </script>
 
@@ -644,26 +635,20 @@ Kullanıcı tanımlı fonksiyonların nasıl oluşturulduğu R ile Veri Analizi 
 
 
 
-
-
-
-
-
-
-
+  
 
   
   
-    
   
-
-
 <div class="article-container pt-3">
   <h1>R Fonksiyonlarında Hata Mesajlarının Özelleştirilmesi</h1>
 
   
+  <p class="page-subtitle">Fonksiyonlarda hata mesajlarının yazımı</p>
+  
 
   
+    
 
 
 <div class="article-metadata">
@@ -705,29 +690,22 @@ Kullanıcı tanımlı fonksiyonların nasıl oluşturulduğu R ile Veri Analizi 
 
 </div>
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
-
-<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 219px;">
-  <div style="position: relative">
-    <img src="/post/r-fonks-hata/featured_hu0be42681bae72e8666c405f87ea34c74_38251_720x0_resize_q90_lanczos.jpg" alt="" class="featured-image">
     
-  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 </div>
 
 
@@ -735,59 +713,51 @@ Kullanıcı tanımlı fonksiyonların nasıl oluşturulduğu R ile Veri Analizi 
   <div class="article-container">
 
     <div class="article-style">
-      <pre><code class="language-{r">knitr::opts_chunk$set(echo = TRUE)
-</code></pre>
+      
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
 <p>Merhaba,</p>
 <p>Bu yazıda R yazılımda hata mesajlarının nasıl özelleştirileceğine değineceğim. R yazılımında hem temel (base) pakette hem de farklı paketlerdeki foksiyonlar kullanmak istemediğinizde kendi fonksiyonlarınızı yazmak isteyebilirsiniz. Bu tür fonksiyonlara <strong>kullanıcı tanımlı (User defined)</strong> fonksiyonlar denir.</p>
-<p>Kullanıcı tanımlı fonksiyonların nasıl oluşturulduğu 
-<a href="https://www.erenozberk.com/talk/rkitap/" target="_blank" rel="noopener">R ile Veri Analizi ve Psikometri Uygulamaları</a> kitabımızda ayrıntılı olarak anlatıldı. İlgilenenler 6. Bölümdeki &ldquo;Fonksiyonlar&rdquo; kısmını inceleyebilirler.</p>
+<p>Kullanıcı tanımlı fonksiyonların nasıl oluşturulduğu <a href="https://www.erenozberk.com/talk/rkitap/">R ile Veri Analizi ve Psikometri Uygulamaları</a> kitabımızda ayrıntılı olarak anlatıldı. İlgilenenler 6. Bölümdeki “Fonksiyonlar” kısmını inceleyebilirler.</p>
 <p>Şimdi anlatacağım konu ise kullanıcı tanımlı fonksiyonların hata mesajları düzeyinde özelleştirilmesi. R yazılımını öğretmeye başlayınca farkettiğim bir durum var: Kişiler hata kodlarını ne kadar iyi anlarsa kod yazma becerileri daha hızlı oluyordu. Çünkü hatanın nerede ve nasıl oluştuğunu anlayıp o kısma odaklanabiliyorlardı. Bu yüzden sistem tarafından üretilen hata mesajlarını okumanın önemi büyüktür. Bana göre, hata mesajlarını çözmek, bir bakıma kullandığınız paketi hatta yazılımı çözme yolunda en büyük adımdır.</p>
-<p>Hata kodlarını özelleştirmeye başladığınızda yazdığınız fonksiyonlar daha işlevsel olacaktır. Örneğin matematikteki çarpma işaretinin ($\Pi$) fonksiyonunu yazalım. Bu fonksiyon ile nesnemizdeki sayıların çarpımını bize verecektir.</p>
-<pre><code class="language-{r}">carpim &lt;- function(x) {
+<p>Hata kodlarını özelleştirmeye başladığınızda yazdığınız fonksiyonlar daha işlevsel olacaktır. Örneğin matematikteki çarpma işaretinin (<span class="math inline">\(\Pi\)</span>) fonksiyonunu yazalım. Bu fonksiyon ile nesnemizdeki sayıların çarpımını bize verecektir.</p>
+<pre class="r"><code>carpim &lt;- function(x) {
 carpim &lt;- 1
 for(i in x) {
 carpim &lt;- carpim*i
 }
 carpim
-}
-
-</code></pre>
+}</code></pre>
 <p>Fonksiyonu tanımladık. Şimdi iki tane sayısal vektör tanımlayalım. Birisi <strong>x</strong> vektörü olsun ve hiç kayıp veri olmasın. İkincisi ise <strong>y</strong> vektörü olsun ve kayıp veri olsun.</p>
-<pre><code class="language-{r}">x &lt;- c(1,4,5,6,7,8,9,21)
+<pre class="r"><code>x &lt;- c(1,4,5,6,7,8,9,21)
 
 y &lt;- c(1,4,NA,6,7,8,9,21)
 
-x
-y
-
-</code></pre>
+x</code></pre>
+<pre><code>## [1]  1  4  5  6  7  8  9 21</code></pre>
+<pre class="r"><code>y</code></pre>
+<pre><code>## [1]  1  4 NA  6  7  8  9 21</code></pre>
 <p>Her iki sayısal vektörü <strong>carpim</strong> fonksiyonu kullanarak çalıştıralım</p>
-<pre><code class="language-{r}">carpim(x)
-
-carpim(y)
-
-</code></pre>
+<pre class="r"><code>carpim(x)</code></pre>
+<pre><code>## [1] 1270080</code></pre>
+<pre class="r"><code>carpim(y)</code></pre>
+<pre><code>## [1] NA</code></pre>
 <p>Dikkat ederseniz <strong>x</strong> vektöründe istediğimiz çıktıyı aldık ama <strong>y</strong> vektöründe istediğimiz çıktıyı alamadık ve sadece <strong>NA</strong> değerini verdi. Ancak bu <strong>NA</strong> değeri sorunun nerede olduğunu bize anlatmıyor.</p>
 <p>Yazdığımız fonksiyona tekrar bakalım. Biz fonksiyonu kayıp verisi olmayan vektörler için yazmışız. Yani varsayımımız şu: Burada sadece tam veriler çalışır. Ama iyi bir fonksiyon yazmak istiyorsak olası tüm durumları da düşünmek zorundayız ve bunlara alternatifler oluşturmalıyız.</p>
 <p>İşte tam da bu noktada; verilerimizde kayıp bir veri olsa idi hata mesajı nasıl yazılmalı idi ona dikkat etmeliyiz.</p>
 <p>Hata mesajları ile ilgili birçok paket bulunmakta. Ben bildiklerimi aşağıda sıraladım.</p>
 <ul>
-<li>Tony Fishettti 
-<a href="https://github.com/tonyfischetti/assertr" target="_blank" rel="noopener">assertr</a></li>
-<li>Hadley Wickham 
-<a href="https://github.com/hadley/assertthat" target="_blank" rel="noopener">assertthat</a></li>
-<li>Michel Lang 
-<a href="https://github.com/mllg/checkmate" target="_blank" rel="noopener">checkmate</a></li>
-<li>Stefan Bache 
-<a href="https://github.com/smbache/ensurer" target="_blank" rel="noopener">ensurer</a></li>
-<li>Gaston Sanchez 
-<a href="https://github.com/gastonstat/tester" target="_blank" rel="noopener">tester</a></li>
-<li>Richard Cotton 
-<a href="https://bitbucket.org/richierocks/assertive/" target="_blank" rel="noopener">assertive</a></li>
+<li>Tony Fishettti <a href="https://github.com/tonyfischetti/assertr">assertr</a></li>
+<li>Hadley Wickham <a href="https://github.com/hadley/assertthat">assertthat</a></li>
+<li>Michel Lang <a href="https://github.com/mllg/checkmate">checkmate</a></li>
+<li>Stefan Bache <a href="https://github.com/smbache/ensurer">ensurer</a></li>
+<li>Gaston Sanchez <a href="https://github.com/gastonstat/tester">tester</a></li>
+<li>Richard Cotton <a href="https://bitbucket.org/richierocks/assertive/">assertive</a></li>
 </ul>
 <p>Dilerseniz bu paketleri kullanabilirsiniz. Ama sorun hala devam ediyor. Nedeni de şu: Hata mesajları <strong>İngilizce</strong> ve ben mesajlarımı <strong>Türkçe</strong> istiyorum. Bu yüzden iş başa düşüyor.</p>
-<p>Fonksiyonumu güncelliyorum. Ve artık bir koşul koymam gerekiyor. Kendime şunu soruyorum &ldquo;Ya verilerimde kayıp veri var ise?&rdquo; Aslında bu &ldquo;ya&rdquo; kısmı R dilindeki <strong>if</strong> koşuluna denk geliyor. Bu nedenle bir koşul ekliyorum fonksiyonuma. Koşulda <em>anyNA</em> fonksiyonunu kullanıyorum. Bu fonksiyon kayıp verinin varlığını Boolean (TRUE-FALSE)mantığı ile test ediyor. <em>warning</em> yani <em>uyarı</em> fonksiyonu ile de istediğim mesajı yazabiliyorum. <em>return</em> fonksiyonu ile de hesaplanamadığına dair bir bilgilendirme yapıyorum. Eğer <em>return</em> kullanmasa idim çıktı &ldquo;NA&rdquo; olarak yer alacaktı.</p>
-<pre><code class="language-{r}">carpim &lt;- function(x, na.rm = FALSE) {
+<p>Fonksiyonumu güncelliyorum. Ve artık bir koşul koymam gerekiyor. Kendime şunu soruyorum “Ya verilerimde kayıp veri var ise?” Aslında bu “ya” kısmı R dilindeki <strong>if</strong> koşuluna denk geliyor. Bu nedenle bir koşul ekliyorum fonksiyonuma. Koşulda <em>anyNA</em> fonksiyonunu kullanıyorum. Bu fonksiyon kayıp verinin varlığını Boolean (TRUE-FALSE)mantığı ile test ediyor. <em>warning</em> yani <em>uyarı</em> fonksiyonu ile de istediğim mesajı yazabiliyorum. <em>return</em> fonksiyonu ile de hesaplanamadığına dair bir bilgilendirme yapıyorum. Eğer <em>return</em> kullanmasa idim çıktı “NA” olarak yer alacaktı.</p>
+<pre class="r"><code>carpim &lt;- function(x, na.rm = FALSE) {
 if(anyNA(x)){
 warning(&quot;Verinizde kayıp veri (NA) bulunmaktadır. Lütfen kontrol ediniz&quot;)
     return(&quot;Hesaplanamadı&quot;)
@@ -797,11 +767,11 @@ for(i in x) {
 carpim &lt;- carpim*i
 }
 carpim
-}
-
-</code></pre>
-<pre><code class="language-{r}">carpim(y)
-</code></pre>
+}</code></pre>
+<pre class="r"><code>carpim(y)</code></pre>
+<pre><code>## Warning in carpim(y): Verinizde kayıp veri (NA) bulunmaktadır. Lütfen kontrol
+## ediniz</code></pre>
+<pre><code>## [1] &quot;Hesaplanamadı&quot;</code></pre>
 <p>Dikkat ederseniz artık sorunun nereden kaynaklı olduğunu görebiliyoruz. Ben hata kodlarının Türkçe olmasını önemsiyorum. Özellikle de kullanıcı tanımlı fonksiyonlarda olmasını önemsiyorum. Bu sayede kullandığınız kod diğer kişiler tarafından da kolaylıkla anlaşılabilecektir.</p>
 
     </div>
@@ -818,7 +788,7 @@ carpim
   
   <a class="badge badge-light" href="">hata mesajı</a>
   
-  <a class="badge badge-light" href="/tags/rstudio/">rstudio</a>
+  <a class="badge badge-light" href="/tags/rstudio/fonk/2020-05-23-r-fonks-hata_files/featured.jpg/">rstudio![](/fonk/2020-05-23-r-fonks-hata_files/featured.jpg)</a>
   
   <a class="badge badge-light" href="/tags/error/">error</a>
   
@@ -905,23 +875,6 @@ carpim
 
 
   
-  
-  <div class="article-widget content-widget-hr">
-    <h3>İlişkili</h3>
-    <ul>
-      
-      <li><a href="/post/fonk/r-fonks-hata/">R Fonksiyonlarında Hata Mesajlarının Özelleştirilmesi</a></li>
-      
-      <li><a href="/talk/rkitap/">R ile Veri Analizi ve Psikometri Uygulamaları</a></li>
-      
-      <li><a href="/talk/rstudio/">TÜBİTAK 2237- RStudio İle Temel İstatistiksel Yöntemler Eğitimi</a></li>
-      
-      <li><a href="/talk/serka/">Serhat Kalkınma Ajansı - Uygulamalı R Yazılımı Veri Analizi</a></li>
-      
-      <li><a href="/talk/epod/">EPOD2016 Kongresi - R Yazılımına Giriş Çalıştayı</a></li>
-      
-    </ul>
-  </div>
   
 
 
