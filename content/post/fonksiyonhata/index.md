@@ -1,37 +1,29 @@
 ---
-title: "R Fonksiyonlarında Hata Mesajlarının Özelleştirilmesi"
-author: "admin"
+title: R Fonksiyonlarında Hata Mesajlarının Özelleştirilmesi
+author: admin
 date: '2020-05-23'
-categories: 
-  - Fonksiyon ve Döngüler
+slug: r-fonksiyonlar-nda-hata-mesajlar-n-n-özelle-tirilmesi
+categories:
+  - Fonksiyonlar ve Döngüler
+tags:
+  - fonksiyon
+  - hata mesajı
+  - rstudio
+subtitle: 'R kullanıcı fonksiyonlarında hata mesajları'
+summary: 'R kullanıcı fonksiyonlarında hata mesajları'
+authors: []
+lastmod: '2020-05-23T19:22:33+03:00'
 featured: no
 image:
   caption: ''
   focal_point: ''
   preview_only: no
-lastmod: '2020-05-23T01:06:20+03:00'
-math: yes
 projects: []
-slug: r-fonks-hata
-subtitle: 'Fonksiyonlarda hata mesajlarının yazımı'
-summary: 'Fonksiyonlarda hata mesajlarının yazımı'
-tags:
-- fonksiyon
-- hata mesajı
-- rstudio
-- error
-authors: []
 ---
 
 
 
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-
-Merhaba,  
+Merhaba, 
 
 Bu yazıda R yazılımda hata mesajlarının nasıl özelleştirileceğine değineceğim. R yazılımında hem temel (base) pakette hem de farklı paketlerdeki foksiyonlar kullanmak istemediğinizde kendi fonksiyonlarınızı yazmak isteyebilirsiniz. Bu tür fonksiyonlara **kullanıcı tanımlı (User defined)** fonksiyonlar denir. 
 
@@ -44,7 +36,8 @@ Hata kodlarını özelleştirmeye başladığınızda yazdığınız fonksiyonla
 
 
 
-```{r}
+
+```r
 carpim <- function(x) {
 carpim <- 1
 for(i in x) {
@@ -52,31 +45,51 @@ carpim <- carpim*i
 }
 carpim
 }
-
 ```
 
 
 Fonksiyonu tanımladık. Şimdi iki tane sayısal vektör tanımlayalım. Birisi **x** vektörü olsun ve hiç kayıp veri olmasın. İkincisi ise **y** vektörü olsun ve kayıp veri olsun. 
 
 
-```{r}
+
+```r
 x <- c(1,4,5,6,7,8,9,21)
 
 y <- c(1,4,NA,6,7,8,9,21)
 
 x
-y
+```
 
+```
+## [1]  1  4  5  6  7  8  9 21
+```
+
+```r
+y
+```
+
+```
+## [1]  1  4 NA  6  7  8  9 21
 ```
 
 Her iki sayısal vektörü **carpim** fonksiyonu kullanarak çalıştıralım
 
 
-```{r}
+
+```r
 carpim(x)
+```
 
+```
+## [1] 1270080
+```
+
+```r
 carpim(y)
+```
 
+```
+## [1] NA
 ```
 
 
@@ -102,7 +115,8 @@ Fonksiyonumu güncelliyorum. Ve artık bir koşul koymam gerekiyor. Kendime şun
 
 
 
-```{r}
+
+```r
 carpim <- function(x, na.rm = FALSE) {
 if(anyNA(x)){
 warning("Verinizde kayıp veri (NA) bulunmaktadır. Lütfen kontrol ediniz")
@@ -114,17 +128,30 @@ carpim <- carpim*i
 }
 carpim
 }
-
 ```
 
 
-```{r}
+
+```r
 carpim(y)
+```
+
+```
+## Warning in carpim(y): Verinizde kayıp veri (NA) bulunmaktadır. Lütfen kontrol
+## ediniz
+```
+
+```
+## [1] "Hesaplanamadı"
 ```
 
 
 
 Dikkat ederseniz artık sorunun nereden kaynaklı olduğunu görebiliyoruz. Ben hata kodlarının Türkçe olmasını önemsiyorum. Özellikle de kullanıcı tanımlı fonksiyonlarda olmasını önemsiyorum. Bu sayede kullandığınız kod diğer kişiler tarafından da kolaylıkla anlaşılabilecektir. 
+
+
+
+
 
 
 
