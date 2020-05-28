@@ -41,11 +41,11 @@ date_format = "Jan 2006"
 [[item]]
   organization = "Datacamp"
   organization_url = "https://www.datacamp.com"
-  title = "Intermediate Importing Data in R"
+  title = "Introduction to Data Visualization with ggplot2"
   url = ""
-  certificate_url = "https://www.datacamp.com/statement-of-accomplishment/course/897ff39aac761ad0845c8badfdfdd3adb3a4d52c"
-  date_start = "2019-06-15"
-  date_end = "2019-05-15"
+  certificate_url = "https://www.datacamp.com/statement-of-accomplishment/course/25f33215e3e0d060ac5ed94564283f21b607201b"
+  date_start = "2020-04-15"
+  date_end = "2020-05-28"
   description = ""
 
 
