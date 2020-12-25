@@ -5,7 +5,7 @@
     <link>/</link>
       <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <description>Eren Halil Özberk</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>tr-Tr</language><copyright>Eren Halil Özberk-2020</copyright><lastBuildDate>Thu, 28 Jun 2018 00:00:00 +0100</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>tr-Tr</language><copyright>Eren Halil Özberk-2020</copyright><lastBuildDate>Sat, 23 May 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Eren Halil Özberk</title>
@@ -1217,54 +1217,6 @@ oyun_sonuc$p.value
       <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
       <guid>/talk/rstudio/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>Gizlilik Politikası</title>
-      <link>/privacy/</link>
-      <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
-      <guid>/privacy/</guid>
-      <description>&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Bu site, kullanıcıların ilettikleri kişisel bilgilerini, Gizlilik Politikası ile belirlenen amaçlar ve kapsam dışında, üçüncü kişilere açıklamayacaktır.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Kişisel bilgiler, ad soyadı, adresi, telefon numarası, e-posta adresi gibi kullanıcıyı tanımlamaya yönelik her türlü diğer bilgiyi içermekte olup kısaca Gizli Bilgiler olarak anılacaktır.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;İşbu Gizlilik Politikası ve Kullanıcı Sözleşmesinde tanımlı olan haller haricinde kişisel bilgileri herhangi bir şirket veya üçüncü kişilere açıklamayacaktır.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Kişisel bilgileri kendi bünyesinde müşteri profili belirlemek ve istatistiksel çalışmalar yapmak amacıyla kullanabilecek ve sadece bu çalışmaların yapılması amacıyla 3.kişiler ile paylaşabilecektir.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Bu site, kişisel bilgileri kesinlikle özel ve gizli tutmayı, bunu bir sır saklama yükümlülüğü olarak addetmeyi, gizliliğin sağlanması ve sürdürülmesi, gizli bilginin tamamının veya herhangi bir kısmının kamu alanına girmesini veya yetkisiz kullanımını veya üçüncü bir kişiye ifşasını önlemek için gerekli tedbirleri almayı ve gerekli özeni göstermeyi taahhüt etmektedir. Sitemin gerekli bilgi güvenliği önlemlerini almasına karşın, sisteme yapılan saldırılar sonucunda gizli bilgilerin zarar görmesi veya üçüncü kişilerin eline geçmesi durumunda, şahsımın herhangi bir sorumluluğu olmayacaktır.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Kullanım Koşulları</title>
-      <link>/terms/</link>
-      <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
-      <guid>/terms/</guid>
-      <description>&lt;p&gt;Site Kullanım Koşulları&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;İşbu Site’de yer alan kodlar, ders notları, bilgiler, makaleler, bilgi ve yöntem gibi tescilli veya tescilsiz tüm fikri mülkiyet hakları site işleteni veya belirtilen ilgilisine ait olup, ulusal ve uluslararası hukukun koruması altındadır. İşbu Site’nin ziyaret edilmesi veya bu Site’deki hizmetlerden yararlanılması söz konusu fikri mülkiyet hakları konusunda hiçbir hak vermez.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Kullanıcı Website dahilinde bulunan ürünleri, bigileri, her türlü veritabanını, resimleri, metinleri, ikonları, görsel ve işitsel vesair imgeleri, video klipleri, dosyaları, web sitesi, software-code&amp;rsquo;ların html kodu ve diğer kodlar vs. ile , tasarımları, katalogları ve listeleri kısmen ya da tamamen çoğaltamayacağı, kopyalamayacağı, dağıtmayacağı, işlemeyeceğini, online ya da diğer bir yöntem kullanılmak suretiyle göndermeyeceğini, gerek bu eylemleri ile gerekse de başka yollarla, web sayfassı sahibi ile doğrudan ve/veya dolaylı olarak rekabete girmeyeceğini kabul ve taahhüt etmektedir.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Sitede yer alan ifadeler içerisindeki 3. kişi ya da kurumlara ait tescilli marka, hizmet, logo vb. uyarılar ve ayraçlar, siteden alıntı yapıldığında kaldırılamaz.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Sitede yer alan yazılar ve kodlar referans gösterilmeden kullanılamaz.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description>
     </item>
     
     <item>
